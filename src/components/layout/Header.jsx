@@ -8,7 +8,7 @@ export default function Header({ dayData, weather }) {
     <div className="bg-indigo-900 text-white p-6 rounded-b-3xl shadow-xl relative overflow-hidden">
       {/* 背景裝飾 */}
       <div className="absolute top-0 right-0 opacity-10 transform translate-x-4 -translate-y-4">
-        <Snowflake size={120} />
+        <Icons.Snowflake size={120} />
       </div>
 
       <div className="relative z-10">
@@ -37,7 +37,7 @@ export default function Header({ dayData, weather }) {
         {/* 天氣警告 */}
         {weather?.warning && (
           <div className="bg-indigo-800/50 p-3 rounded-lg border-l-4 border-amber-500 flex items-start gap-3">
-            <Info size={18} className="text-amber-400 flex-shrink-0 mt-0.5" />
+            <Icons.Info size={18} className="text-amber-400 flex-shrink-0 mt-0.5" />
             <p className="text-xs leading-relaxed text-indigo-100">
               <span className="font-bold text-amber-400">天氣管家：</span>
               {weather.warning}
