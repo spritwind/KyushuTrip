@@ -2,12 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 自訂全域樣式 */
+/* 自訂全域樣式 - 頂尖品牌設計風格 */
 
 @layer base {
   body {
-    @apply bg-slate-50 text-gray-900;
-    font-family: 'Inter', 'Noto Sans TC', system-ui, sans-serif;
+    @apply bg-gradient-to-br from-primary-50 via-white to-accent-50 text-gray-800;
+    font-family: 'SF Pro Display', 'Inter', 'Noto Sans TC', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* 優雅的標題樣式 */
+  h1, h2, h3 {
+    @apply font-display;
+    letter-spacing: -0.02em;
   }
 }
 
@@ -21,37 +29,72 @@
     display: none;
   }
 
-  /* 動畫類別 */
+  /* 時尚玻璃效果 */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* 優雅漸變背景 */
+  .gradient-primary {
+    background: linear-gradient(135deg, #6b7fff 0%, #5563f5 100%);
+  }
+
+  .gradient-accent {
+    background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
+  }
+
+  .gradient-rose {
+    background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+  }
+
+  /* 動畫類別 - 更流暢 */
   .animate-in {
-    animation: fadeIn 0.3s ease-in;
+    animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .fade-in {
-    animation: fadeIn 0.5s ease-in;
+    animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .slide-in-from-right {
-    animation: slideInFromRight 0.3s ease-out;
+    animation: slideInFromRight 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .slide-up {
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .zoom-in {
-    animation: zoomIn 0.3s ease-out;
+    animation: zoomIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* 柔和陰影 */
+  .shadow-elegant {
+    box-shadow: 0 4px 24px rgba(107, 127, 255, 0.12);
+  }
+
+  .shadow-warm {
+    box-shadow: 0 4px 24px rgba(251, 146, 60, 0.12);
   }
 }
 
-/* 關鍵影格動畫 */
+/* 關鍵影格動畫 - 優雅流暢 */
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
 @keyframes slideInFromRight {
   from {
-    transform: translateX(20px);
+    transform: translateX(24px);
     opacity: 0;
   }
   to {
@@ -60,9 +103,20 @@
   }
 }
 
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 @keyframes zoomIn {
   from {
-    transform: scale(0.95);
+    transform: scale(0.96);
     opacity: 0;
   }
   to {
@@ -71,16 +125,30 @@
   }
 }
 
-/* 骨架屏動畫 */
+/* 骨架屏動畫 - 柔和 */
 @keyframes pulse {
   0%, 100% {
     opacity: 1;
   }
   50% {
-    opacity: 0.5;
+    opacity: 0.6;
   }
 }
 
 .animate-pulse {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* 可愛彈跳效果 */
+@keyframes bounce-soft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.hover-bounce:hover {
+  animation: bounce-soft 0.5s ease-in-out;
 }

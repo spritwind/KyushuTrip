@@ -6,7 +6,7 @@ import GourmetView from './components/gourmet/GourmetView';
 import ShoppingView from './components/shopping/ShoppingView';
 import MapView from './components/map/MapView';
 import DaySelector from './components/timeline/DaySelector';
-import { ITINERARY_DATA } from './data/itinerary';
+import { ITINERARY_DATA_ENHANCED } from './data/itinerary_enhanced';
 import { WEATHER_MOCK_DATA } from './data/weatherMock';
 
 export default function App() {
@@ -14,13 +14,13 @@ export default function App() {
   const [activeDayId, setActiveDayId] = useState(1);
 
   // 獲取當前日期資料
-  const currentDayData = ITINERARY_DATA.find((d) => d.id === activeDayId);
+  const currentDayData = ITINERARY_DATA_ENHANCED.find((d) => d.id === activeDayId);
 
   // 獲取當前天氣資料（暫時使用 Mock 資料）
   const currentWeather = currentDayData ? WEATHER_MOCK_DATA[currentDayData.isoDate] : null;
 
   return (
-    <div className="min-h-screen bg-slate-50 pb-24 font-sans text-gray-900 max-w-md mx-auto shadow-2xl overflow-hidden relative">
+    <div className="min-h-screen pb-24 font-sans text-gray-800 max-w-md mx-auto shadow-elegant overflow-hidden relative bg-white">
       {/* Header */}
       <Header dayData={currentDayData} weather={currentWeather} />
 
@@ -31,7 +31,7 @@ export default function App() {
           <>
             <div className="bg-white rounded-2xl shadow-lg p-1 mb-6">
               <DaySelector
-                days={ITINERARY_DATA}
+                days={ITINERARY_DATA_ENHANCED}
                 activeDay={activeDayId}
                 setActiveDay={setActiveDayId}
               />
@@ -44,7 +44,7 @@ export default function App() {
         {activeTab === 'gourmet' && (
           <GourmetView
             dayData={currentDayData}
-            allDays={ITINERARY_DATA}
+            allDays={ITINERARY_DATA_ENHANCED}
             activeDayId={activeDayId}
             setActiveDayId={setActiveDayId}
           />
@@ -55,7 +55,7 @@ export default function App() {
           <div className="animate-in zoom-in duration-300">
             <div className="bg-white rounded-2xl shadow-lg p-1 mb-6">
               <DaySelector
-                days={ITINERARY_DATA}
+                days={ITINERARY_DATA_ENHANCED}
                 activeDay={activeDayId}
                 setActiveDay={setActiveDayId}
               />

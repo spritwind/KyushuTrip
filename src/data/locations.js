@@ -26,6 +26,10 @@ export const LOCATIONS = {
   kotsukotsu_an: { lat: 33.2856, lng: 131.4898, name: "Kotsukotsu An" },
   okamotoya: { lat: 33.3095, lng: 131.4660, name: "岡本屋賣店" },
 
+  // Day 2 - 別府購物
+  chinoike_shop: { lat: 33.2947, lng: 131.4783, name: "血池地獄 賣店" },
+  umi_jigoku_shop: { lat: 33.3089, lng: 131.4656, name: "海地獄 賣店" },
+
   // Day 3 - 由布院
   yufuin_station: { lat: 33.2661, lng: 131.3669, name: "由布院站" },
   yunohira_street: { lat: 33.2658, lng: 131.3695, name: "湯之坪街道" },
@@ -34,6 +38,7 @@ export const LOCATIONS = {
   yufuin_kokoro: { lat: 33.2654, lng: 131.3718, name: "由布釜飯「心」" },
   bspeak: { lat: 33.2660, lng: 131.3685, name: "B-Speak" },
   cucuchi: { lat: 33.2657, lng: 131.3692, name: "鞠智 cucuchi" },
+  yufuin_shoyu: { lat: 33.2656, lng: 131.3690, name: "由布院醬油屋本店" },
   kokonoe_ski: { lat: 33.1342, lng: 131.2361, name: "九重森林公園滑雪場" },
   sujiyu_onsen: { lat: 33.1539, lng: 131.2258, name: "筋湯溫泉 旅館 Nanakamado" }
 };

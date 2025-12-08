@@ -1,4 +1,4 @@
-import { Utensils, Navigation } from 'lucide-react';
+import { Utensils, Navigation, Star, Award } from 'lucide-react';
 import { LOCATIONS } from '@data/locations';
 import { getGoogleMapsDirectionsUrl } from '@utils/helpers';
 
@@ -34,8 +34,24 @@ export default function GourmetCard({ place }) {
 
       {/* 內容區域 */}
       <div className="pt-8 px-4 pb-4">
-        <h3 className="text-lg font-bold text-gray-900">{place.name}</h3>
-        <p className="text-xs text-amber-600 font-medium mb-2">{place.type}</p>
+        <div className="flex items-start justify-between mb-1">
+          <h3 className="text-lg font-bold text-gray-900 flex-1">{place.name}</h3>
+          {place.michelin && (
+            <div className="ml-2 bg-red-50 px-2 py-1 rounded-lg flex items-center gap-1">
+              <Award size={14} className="text-red-600" />
+              <span className="text-xs font-bold text-red-600">米其林</span>
+            </div>
+          )}
+        </div>
+        <div className="flex items-center gap-2 mb-2">
+          <p className="text-xs text-amber-600 font-medium">{place.type}</p>
+          {place.googleRating && (
+            <div className="flex items-center gap-1 bg-amber-50 px-2 py-0.5 rounded-full">
+              <Star size={12} className="text-amber-500 fill-amber-500" />
+              <span className="text-xs font-bold text-amber-700">{place.googleRating}</span>
+            </div>
+          )}
+        </div>
         <p className="text-sm text-gray-500 leading-relaxed">{place.desc}</p>
 
         {/* 導航按鈕 */}
