@@ -1,14 +1,21 @@
 import { useState } from 'react';
 import { APIProvider, Map } from '@vis.gl/react-google-maps';
+import { MapPinned } from 'lucide-react';
 import MapMarker from './MapMarker';
 import MapRoute from './MapRoute';
 import MapLegend from './MapLegend';
 import { MAP_CONFIG, MAP_OPTIONS } from '@config/maps';
+import { getDistanceFromUser } from '@utils/helpers';
 
-export default function MapView({ dayData }) {
+export default function MapView({ dayData, userPosition }) {
   const [selectedMarker, setSelectedMarker] = useState(null);
   // Google Maps API Key (寫死在程式碼中)
   const apiKey = 'AIzaSyDcs-sKtNk8tnuwofLKmf6qBCEsABeGoR8';
+
+  // 計算選中標記的距離
+  const selectedDistance = selectedMarker && userPosition && selectedMarker.coordinates
+    ? getDistanceFromUser(userPosition, selectedMarker.coordinates)
+    : null;
 
   return (
     <APIProvider apiKey={apiKey}>
@@ -50,26 +57,34 @@ export default function MapView({ dayData }) {
         {/* 圖例 */}
         <MapLegend />
 
-        {/* 選中標記的資訊卡片 */}
+        {/* 選中標記的資訊卡片 - 修改為頂部顯示避免被底部導航遮住 */}
         {selectedMarker && (
-          <div className="absolute bottom-4 left-4 right-4 bg-white rounded-xl shadow-xl p-4 border border-gray-200">
+          <div className="absolute top-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl p-4 border border-gray-200 animate-in slide-up z-50">
             <button
               onClick={() => setSelectedMarker(null)}
-              className="absolute top-2 right-2 text-gray-400 hover:text-gray-600"
+              className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-700 transition-colors"
             >
               ✕
             </button>
-            <h4 className="font-bold text-gray-900 pr-6">
+            <h4 className="font-bold text-gray-900 pr-8 mb-1">
               {selectedMarker.title || selectedMarker.name}
             </h4>
-            <p className="text-sm text-gray-600 mt-1">
+            <p className="text-sm text-gray-600 leading-relaxed mb-2">
               {selectedMarker.detail || selectedMarker.desc}
             </p>
-            {selectedMarker.time && (
-              <span className="inline-block mt-2 text-xs bg-indigo-50 text-indigo-700 px-2 py-1 rounded">
-                {selectedMarker.time}
-              </span>
-            )}
+            <div className="flex items-center gap-2 flex-wrap">
+              {selectedMarker.time && (
+                <span className="inline-block text-xs bg-primary-100 text-primary-700 px-2.5 py-1 rounded-full font-medium">
+                  {selectedMarker.time}
+                </span>
+              )}
+              {selectedDistance && (
+                <span className="inline-flex items-center gap-1 text-xs bg-success-50 text-success-700 px-2.5 py-1 rounded-full font-medium border border-success-200">
+                  <MapPinned size={12} />
+                  距離您 {selectedDistance}
+                </span>
+              )}
+            </div>
           </div>
         )}
       </div>

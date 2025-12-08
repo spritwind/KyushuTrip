@@ -74,3 +74,78 @@ export function highlightElement(elementId, duration = 2000) {
     }, duration);
   }
 }
+
+/**
+ * 使用 Haversine 公式計算兩個經緯度座標之間的距離（公里）
+ * @param {number} lat1 - 起點緯度
+ * @param {number} lng1 - 起點經度
+ * @param {number} lat2 - 終點緯度
+ * @param {number} lng2 - 終點經度
+ * @returns {number} 距離（公里）
+ */
+export function calculateDistance(lat1, lng1, lat2, lng2) {
+  // 地球半徑（公里）
+  const R = 6371;
+
+  // 轉換為弧度
+  const dLat = toRadians(lat2 - lat1);
+  const dLng = toRadians(lng2 - lng1);
+
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRadians(lat1)) *
+      Math.cos(toRadians(lat2)) *
+      Math.sin(dLng / 2) *
+      Math.sin(dLng / 2);
+
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const distance = R * c;
+
+  return distance;
+}
+
+/**
+ * 將角度轉換為弧度
+ */
+function toRadians(degrees) {
+  return degrees * (Math.PI / 180);
+}
+
+/**
+ * 格式化距離顯示
+ * @param {number} distanceKm - 距離（公里）
+ * @returns {string} 格式化的距離字串
+ */
+export function formatDistance(distanceKm) {
+  if (distanceKm < 1) {
+    // 小於 1 公里顯示公尺
+    return `${Math.round(distanceKm * 1000)}m`;
+  } else if (distanceKm < 10) {
+    // 1-10 公里顯示一位小數
+    return `${distanceKm.toFixed(1)}km`;
+  } else {
+    // 大於 10 公里顯示整數
+    return `${Math.round(distanceKm)}km`;
+  }
+}
+
+/**
+ * 計算用戶位置到目標位置的距離並格式化
+ * @param {Object} userPosition - 用戶位置 { lat, lng }
+ * @param {Object} targetCoordinates - 目標座標 { lat, lng }
+ * @returns {string|null} 格式化的距離或 null（無法計算時）
+ */
+export function getDistanceFromUser(userPosition, targetCoordinates) {
+  if (!userPosition || !targetCoordinates) {
+    return null;
+  }
+
+  const distance = calculateDistance(
+    userPosition.lat,
+    userPosition.lng,
+    targetCoordinates.lat,
+    targetCoordinates.lng
+  );
+
+  return formatDistance(distance);
+}

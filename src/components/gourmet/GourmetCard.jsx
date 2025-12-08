@@ -1,8 +1,12 @@
-import { Utensils, Navigation, Star, Award } from 'lucide-react';
+import { Utensils, Navigation, Star, Award, MapPinned } from 'lucide-react';
 import { LOCATIONS } from '@data/locations';
-import { getGoogleMapsDirectionsUrl } from '@utils/helpers';
+import { getGoogleMapsDirectionsUrl, getDistanceFromUser } from '@utils/helpers';
 
-export default function GourmetCard({ place }) {
+export default function GourmetCard({ place, userPosition }) {
+  // 計算距離
+  const distance = userPosition && place.coordinates
+    ? getDistanceFromUser(userPosition, place.coordinates)
+    : null;
   const handleNavigate = () => {
     if (place.locationKey) {
       const location = LOCATIONS[place.locationKey];
@@ -44,12 +48,18 @@ export default function GourmetCard({ place }) {
           )}
         </div>
 
-        <div className="flex items-center gap-2 mb-3">
+        <div className="flex items-center gap-2 mb-3 flex-wrap">
           <p className="text-xs text-amber-600 font-bold bg-amber-50 px-2 py-0.5 rounded-md">{place.type}</p>
           {place.googleRating && (
             <div className="flex items-center gap-1 bg-yellow-50 px-2 py-0.5 rounded-full border border-yellow-100">
               <Star size={12} className="text-yellow-400 fill-yellow-400" />
               <span className="text-xs font-bold text-yellow-700">{place.googleRating}</span>
+            </div>
+          )}
+          {distance && (
+            <div className="flex items-center gap-1 bg-success-50 px-2 py-0.5 rounded-full border border-success-200">
+              <MapPinned size={12} className="text-success-600" />
+              <span className="text-xs font-bold text-success-700">{distance}</span>
             </div>
           )}
         </div>

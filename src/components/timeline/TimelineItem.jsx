@@ -8,10 +8,16 @@ import {
   Map,
   Circle,
   Clock,
-  Camera
+  Camera,
+  MapPinned
 } from 'lucide-react';
+import { getDistanceFromUser } from '@utils/helpers';
 
-export default function TimelineItem({ activity, isLast, index }) {
+export default function TimelineItem({ activity, isLast, index, userPosition }) {
+  // 計算距離
+  const distance = userPosition && activity.coordinates
+    ? getDistanceFromUser(userPosition, activity.coordinates)
+    : null;
   const getIcon = (type) => {
     switch (type) {
       case 'transport': return <Navigation size={18} className="text-blue-400" />;
@@ -64,6 +70,14 @@ export default function TimelineItem({ activity, isLast, index }) {
               <p className="text-sm text-gray-500 leading-relaxed">
                 {activity.detail}
               </p>
+
+              {/* 顯示距離 */}
+              {distance && (
+                <div className="mt-2 inline-flex items-center gap-1.5 text-xs bg-success-50 text-success-700 px-2.5 py-1 rounded-full font-medium border border-success-200">
+                  <MapPinned size={12} />
+                  <span>距離您 {distance}</span>
+                </div>
+              )}
 
               {/* Driving details */}
               {activity.type === 'drive' && activity.duration && (

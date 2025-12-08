@@ -8,10 +8,14 @@ import MapView from './components/map/MapView';
 import DaySelector from './components/timeline/DaySelector';
 import { ITINERARY_DATA_ENHANCED } from './data/itinerary_enhanced';
 import { WEATHER_MOCK_DATA } from './data/weatherMock';
+import { useGeolocation } from './hooks/useGeolocation';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('timeline');
   const [activeDayId, setActiveDayId] = useState(1);
+
+  // 獲取用戶當前位置
+  const { position: userPosition, error: locationError, loading: locationLoading } = useGeolocation();
 
   // 獲取當前日期資料
   const currentDayData = ITINERARY_DATA_ENHANCED.find((d) => d.id === activeDayId);
@@ -42,7 +46,7 @@ export default function App() {
 
           {/* Views */}
           <main className="animate-in fade-in transition-all duration-500">
-            {activeTab === 'timeline' && <TimelineView dayData={currentDayData} />}
+            {activeTab === 'timeline' && <TimelineView dayData={currentDayData} userPosition={userPosition} />}
 
             {activeTab === 'gourmet' && (
               <GourmetView
@@ -50,10 +54,11 @@ export default function App() {
                 allDays={ITINERARY_DATA_ENHANCED}
                 activeDayId={activeDayId}
                 setActiveDayId={setActiveDayId}
+                userPosition={userPosition}
               />
             )}
 
-            {activeTab === 'map' && <MapView dayData={currentDayData} />}
+            {activeTab === 'map' && <MapView dayData={currentDayData} userPosition={userPosition} />}
 
             {activeTab === 'shopping' && <ShoppingView />}
           </main>

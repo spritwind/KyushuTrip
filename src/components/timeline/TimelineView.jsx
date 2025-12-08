@@ -1,7 +1,7 @@
 import { MapPin } from 'lucide-react';
 import TimelineItem from './TimelineItem';
 
-export default function TimelineView({ dayData }) {
+export default function TimelineView({ dayData, userPosition }) {
   return (
     <div className="space-y-4 pb-12">
       {/* 住宿資訊 */}
@@ -27,6 +27,7 @@ export default function TimelineView({ dayData }) {
             activity={activity}
             isLast={index === dayData.activities.length - 1}
             index={index}
+            userPosition={userPosition}
           />
         ))}
       </div>
