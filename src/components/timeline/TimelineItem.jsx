@@ -11,13 +11,21 @@ import {
   Camera,
   MapPinned
 } from 'lucide-react';
-import { getDistanceFromUser } from '@utils/helpers';
+import { getDistanceFromUser, getGoogleMapsDirectionsUrl } from '@utils/helpers';
 
 export default function TimelineItem({ activity, isLast, index, userPosition }) {
   // 計算距離
   const distance = userPosition && activity.coordinates
     ? getDistanceFromUser(userPosition, activity.coordinates)
     : null;
+
+  // 導航處理
+  const handleNavigate = () => {
+    if (activity.coordinates) {
+      const url = getGoogleMapsDirectionsUrl(activity.coordinates.lat, activity.coordinates.lng);
+      window.open(url, '_blank');
+    }
+  };
   const getIcon = (type) => {
     switch (type) {
       case 'transport': return <Navigation size={18} className="text-blue-400" />;
@@ -71,13 +79,24 @@ export default function TimelineItem({ activity, isLast, index, userPosition }) 
                 {activity.detail}
               </p>
 
-              {/* 顯示距離 */}
-              {distance && (
-                <div className="mt-2 inline-flex items-center gap-1.5 text-xs bg-success-50 text-success-700 px-2.5 py-1 rounded-full font-medium border border-success-200">
-                  <MapPinned size={12} />
-                  <span>距離您 {distance}</span>
-                </div>
-              )}
+              {/* 距離與導航 */}
+              <div className="mt-3 flex items-center gap-2">
+                {distance && (
+                  <div className="inline-flex items-center gap-1.5 text-xs bg-success-50 text-success-700 px-2.5 py-1 rounded-full font-medium border border-success-200">
+                    <MapPinned size={12} />
+                    <span>距離您 {distance}</span>
+                  </div>
+                )}
+                {activity.coordinates && (
+                  <button
+                    onClick={handleNavigate}
+                    className="inline-flex items-center gap-1.5 text-xs bg-primary-500 hover:bg-primary-600 text-white px-3 py-1.5 rounded-full font-bold shadow-sm hover:shadow-md active:scale-95 transition-all"
+                  >
+                    <Navigation size={12} />
+                    <span>Go!</span>
+                  </button>
+                )}
+              </div>
 
               {/* Driving details */}
               {activity.type === 'drive' && activity.duration && (

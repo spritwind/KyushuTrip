@@ -158,7 +158,7 @@ export const ITINERARY_DATA_ENHANCED = [
         detail: "別府站前，全館榻榻米及露天溫泉",
         locationKey: "nono_beppu",
         googleRating: 4.6,
-        coordinates: { lat: 33.2815, lng: 131.5015 }
+        coordinates: { lat: 33.2850, lng: 131.4920 }
       },
       {
         time: "16:00",
@@ -167,7 +167,7 @@ export const ITINERARY_DATA_ENHANCED = [
         detail: "彌生天狗通散策 (走路4分) | 必拍地標",
         locationKey: "beppu_tengu",
         googleRating: 4.0,
-        coordinates: { lat: 33.2798, lng: 131.5050 }
+        coordinates: { lat: 33.2821, lng: 131.4916 }
       },
       {
         time: "16:30",
@@ -176,7 +176,7 @@ export const ITINERARY_DATA_ENHANCED = [
         detail: "建於1879年百年建築 | Google評分: 4.4⭐ | 唐破風造豪華外觀",
         locationKey: "takegawara",
         googleRating: 4.4,
-        coordinates: { lat: 33.2795, lng: 131.5061 }
+        coordinates: { lat: 33.2794, lng: 131.4894 }
       },
       {
         time: "18:30",
@@ -184,7 +184,7 @@ export const ITINERARY_DATA_ENHANCED = [
         title: "別府晚餐 (見推薦)",
         detail: "餃子香月 / 東洋軒 / 海鮮居酒屋",
         locationKey: "beppu_dinner",
-        coordinates: { lat: 33.2800, lng: 131.5050 }
+        coordinates: { lat: 33.2821, lng: 131.4916 }
       }
     ],
     gourmet: [
@@ -196,7 +196,7 @@ export const ITINERARY_DATA_ENHANCED = [
         locationKey: "kogetsu_gyoza",
         googleRating: 4.3,
         michelin: false,
-        coordinates: { lat: 33.2785, lng: 131.5042 }
+        coordinates: { lat: 33.2785, lng: 131.4890 }
       },
       {
         name: "東洋軒 (Toyoken)",
@@ -206,7 +206,7 @@ export const ITINERARY_DATA_ENHANCED = [
         locationKey: "toyoken",
         googleRating: 4.3,
         michelin: false,
-        coordinates: { lat: 33.3035, lng: 131.5060 }
+        coordinates: { lat: 33.3035, lng: 131.4920 }
       },
       {
         name: "Hyotan Onsen - Yurari",
@@ -226,7 +226,7 @@ export const ITINERARY_DATA_ENHANCED = [
         locationKey: "toyotsune",
         googleRating: 4.4,
         michelin: false,
-        coordinates: { lat: 33.2838, lng: 131.5030 }
+        coordinates: { lat: 33.2838, lng: 131.4905 }
       }
     ],
     shopping: [
@@ -271,7 +271,7 @@ export const ITINERARY_DATA_ENHANCED = [
         detail: "晨霧名勝 | 湯布院花卉村 (Floral Village)",
         locationKey: "kinrin",
         googleRating: 4.2,
-        coordinates: { lat: 33.2656, lng: 131.3720 }
+        coordinates: { lat: 33.2656, lng: 131.3719 }
       },
       {
         time: "12:00",
