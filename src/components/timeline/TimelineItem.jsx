@@ -25,7 +25,8 @@ export default function TimelineItem({ activity, isLast, index, userPosition, na
       const url = getGoogleMapsDirectionsUrl(
         activity.coordinates.lat,
         activity.coordinates.lng,
-        navigationMode
+        navigationMode,
+        activity.title // 傳遞景點名稱
       );
       window.open(url, '_blank');
     }

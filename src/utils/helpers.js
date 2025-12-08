@@ -36,14 +36,23 @@ export function getActivityIcon(type) {
  * @param {number} lat - 緯度
  * @param {number} lng - 經度
  * @param {boolean} navigationMode - true: 導航模式, false: 查看模式
+ * @param {string} placeName - 地點名稱（選填，用於查看模式）
  */
-export function getGoogleMapsDirectionsUrl(lat, lng, navigationMode = true) {
+export function getGoogleMapsDirectionsUrl(lat, lng, navigationMode = true, placeName = null) {
   if (navigationMode) {
     // 導航模式：開啟 Google Maps 導航
     return `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
   } else {
-    // 查看模式：只顯示該地點（不開啟導航）
-    return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+    // 查看模式：使用地點名稱 + 座標搜尋，確保精確定位到正確的分店
+    if (placeName) {
+      // 組合名稱和座標，Google Maps 會優先匹配最接近該座標的同名店家
+      const searchQuery = `${placeName} ${lat},${lng}`;
+      const encodedQuery = encodeURIComponent(searchQuery);
+      return `https://www.google.com/maps/search/?api=1&query=${encodedQuery}`;
+    } else {
+      // 如果沒有名稱，降級使用座標
+      return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+    }
   }
 }
 

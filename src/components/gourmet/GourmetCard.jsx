@@ -11,7 +11,12 @@ export default function GourmetCard({ place, userPosition, navigationMode }) {
     if (place.locationKey) {
       const location = LOCATIONS[place.locationKey];
       if (location) {
-        const url = getGoogleMapsDirectionsUrl(location.lat, location.lng, navigationMode);
+        const url = getGoogleMapsDirectionsUrl(
+          location.lat,
+          location.lng,
+          navigationMode,
+          place.name // 傳遞餐廳名稱
+        );
         window.open(url, '_blank');
       }
     }
