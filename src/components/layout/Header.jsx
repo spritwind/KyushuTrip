@@ -1,7 +1,8 @@
-import { Snowflake, Info } from 'lucide-react';
+import * as Icons from 'lucide-react';
 
 export default function Header({ dayData, weather }) {
-  const WeatherIcon = weather?.icon || Snowflake;
+  // 動態獲取天氣圖示元件
+  const WeatherIcon = weather?.iconName ? Icons[weather.iconName] : Icons.Snowflake;
 
   return (
     <div className="bg-indigo-900 text-white p-6 rounded-b-3xl shadow-xl relative overflow-hidden">
