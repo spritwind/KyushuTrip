@@ -1,10 +1,10 @@
 import { Store, Navigation, MapPin } from 'lucide-react';
 import { getGoogleMapsDirectionsUrl } from '@utils/helpers';
 
-export default function ShoppingCard({ shop }) {
+export default function ShoppingCard({ shop, navigationMode }) {
   const handleNavigate = () => {
     if (shop.coordinates) {
-      const url = getGoogleMapsDirectionsUrl(shop.coordinates.lat, shop.coordinates.lng);
+      const url = getGoogleMapsDirectionsUrl(shop.coordinates.lat, shop.coordinates.lng, navigationMode);
       window.open(url, '_blank');
     }
   };

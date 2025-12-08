@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import { getDistanceFromUser, getGoogleMapsDirectionsUrl } from '@utils/helpers';
 
-export default function TimelineItem({ activity, isLast, index, userPosition }) {
+export default function TimelineItem({ activity, isLast, index, userPosition, navigationMode }) {
   // 計算距離
   const distance = userPosition && activity.coordinates
     ? getDistanceFromUser(userPosition, activity.coordinates)
@@ -22,7 +22,11 @@ export default function TimelineItem({ activity, isLast, index, userPosition }) 
   // 導航處理
   const handleNavigate = () => {
     if (activity.coordinates) {
-      const url = getGoogleMapsDirectionsUrl(activity.coordinates.lat, activity.coordinates.lng);
+      const url = getGoogleMapsDirectionsUrl(
+        activity.coordinates.lat,
+        activity.coordinates.lng,
+        navigationMode
+      );
       window.open(url, '_blank');
     }
   };

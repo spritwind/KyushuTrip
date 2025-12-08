@@ -2,7 +2,7 @@ import { Utensils } from 'lucide-react';
 import GourmetCard from './GourmetCard';
 import DaySelector from '../timeline/DaySelector';
 
-export default function GourmetView({ dayData, allDays, activeDayId, setActiveDayId, userPosition }) {
+export default function GourmetView({ dayData, allDays, activeDayId, setActiveDayId, userPosition, navigationMode }) {
   return (
     <div className="animate-in slide-in-from-right duration-300">
       {/* 標題 */}
@@ -21,7 +21,12 @@ export default function GourmetView({ dayData, allDays, activeDayId, setActiveDa
       <div className="mt-4">
         {dayData.gourmet && dayData.gourmet.length > 0 ? (
           dayData.gourmet.map((place, index) => (
-            <GourmetCard key={index} place={place} userPosition={userPosition} />
+            <GourmetCard
+              key={index}
+              place={place}
+              userPosition={userPosition}
+              navigationMode={navigationMode}
+            />
           ))
         ) : (
           <div className="text-center py-8 text-gray-500">

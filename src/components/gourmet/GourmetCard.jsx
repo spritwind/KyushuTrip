@@ -2,7 +2,7 @@ import { Utensils, Navigation, Star, Award, MapPinned } from 'lucide-react';
 import { LOCATIONS } from '@data/locations';
 import { getGoogleMapsDirectionsUrl, getDistanceFromUser } from '@utils/helpers';
 
-export default function GourmetCard({ place, userPosition }) {
+export default function GourmetCard({ place, userPosition, navigationMode }) {
   // 計算距離
   const distance = userPosition && place.coordinates
     ? getDistanceFromUser(userPosition, place.coordinates)
@@ -11,7 +11,7 @@ export default function GourmetCard({ place, userPosition }) {
     if (place.locationKey) {
       const location = LOCATIONS[place.locationKey];
       if (location) {
-        const url = getGoogleMapsDirectionsUrl(location.lat, location.lng);
+        const url = getGoogleMapsDirectionsUrl(location.lat, location.lng, navigationMode);
         window.open(url, '_blank');
       }
     }

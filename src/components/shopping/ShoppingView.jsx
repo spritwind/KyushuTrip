@@ -5,7 +5,7 @@ import { SHOPPING_LIST } from '@data/shopping';
 import { ITINERARY_DATA_ENHANCED } from '@data/itinerary_enhanced';
 import { useState, useEffect } from 'react';
 
-export default function ShoppingView() {
+export default function ShoppingView({ navigationMode }) {
   // 收集所有天數的購物資訊
   const allShoppingSpots = ITINERARY_DATA_ENHANCED.filter(day => day.shopping && day.shopping.length > 0)
     .flatMap(day => day.shopping.map(shop => ({ ...shop, dayTitle: day.title })));
@@ -49,7 +49,7 @@ export default function ShoppingView() {
             </h3>
             <div className="space-y-3">
               {day.shopping.map((shop, idx) => (
-                <ShoppingCard key={`${day.id}-${idx}`} shop={shop} />
+                <ShoppingCard key={`${day.id}-${idx}`} shop={shop} navigationMode={navigationMode} />
               ))}
             </div>
           </div>

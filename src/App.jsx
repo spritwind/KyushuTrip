@@ -13,6 +13,7 @@ import { useGeolocation } from './hooks/useGeolocation';
 export default function App() {
   const [activeTab, setActiveTab] = useState('timeline');
   const [activeDayId, setActiveDayId] = useState(1);
+  const [navigationMode, setNavigationMode] = useState(true); // true: 導航, false: 查看
 
   // 獲取用戶當前位置
   const { position: userPosition, error: locationError, loading: locationLoading } = useGeolocation();
@@ -28,7 +29,12 @@ export default function App() {
       <div className="w-full max-w-md relative min-h-screen pb-28">
 
         {/* Header */}
-        <Header dayData={currentDayData} weather={currentWeather} />
+        <Header
+          dayData={currentDayData}
+          weather={currentWeather}
+          navigationMode={navigationMode}
+          setNavigationMode={setNavigationMode}
+        />
 
         {/* Main Content Area */}
         <div className="px-5 -mt-4 relative z-20 space-y-6">
@@ -46,7 +52,13 @@ export default function App() {
 
           {/* Views */}
           <main className="animate-in fade-in transition-all duration-500">
-            {activeTab === 'timeline' && <TimelineView dayData={currentDayData} userPosition={userPosition} />}
+            {activeTab === 'timeline' && (
+              <TimelineView
+                dayData={currentDayData}
+                userPosition={userPosition}
+                navigationMode={navigationMode}
+              />
+            )}
 
             {activeTab === 'gourmet' && (
               <GourmetView
@@ -55,12 +67,13 @@ export default function App() {
                 activeDayId={activeDayId}
                 setActiveDayId={setActiveDayId}
                 userPosition={userPosition}
+                navigationMode={navigationMode}
               />
             )}
 
             {activeTab === 'map' && <MapView dayData={currentDayData} userPosition={userPosition} />}
 
-            {activeTab === 'shopping' && <ShoppingView />}
+            {activeTab === 'shopping' && <ShoppingView navigationMode={navigationMode} />}
           </main>
         </div>
 

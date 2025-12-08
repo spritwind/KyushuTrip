@@ -33,9 +33,18 @@ export function getActivityIcon(type) {
 
 /**
  * 生成 Google Maps 導航 URL
+ * @param {number} lat - 緯度
+ * @param {number} lng - 經度
+ * @param {boolean} navigationMode - true: 導航模式, false: 查看模式
  */
-export function getGoogleMapsDirectionsUrl(lat, lng) {
-  return `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+export function getGoogleMapsDirectionsUrl(lat, lng, navigationMode = true) {
+  if (navigationMode) {
+    // 導航模式：開啟 Google Maps 導航
+    return `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+  } else {
+    // 查看模式：只顯示該地點（不開啟導航）
+    return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+  }
 }
 
 /**

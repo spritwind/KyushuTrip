@@ -1,6 +1,6 @@
 import * as Icons from 'lucide-react';
 
-export default function Header({ dayData, weather }) {
+export default function Header({ dayData, weather, navigationMode, setNavigationMode }) {
   const WeatherIcon = weather?.iconName ? Icons[weather.iconName] : Icons.CloudSun;
 
   return (
@@ -52,6 +52,34 @@ export default function Header({ dayData, weather }) {
             <span className="max-w-[120px] truncate">{dayData.stay}</span>
           </div>
         )}
+      </div>
+
+      {/* 導航模式切換按鈕 */}
+      <div className="mt-4 flex items-center justify-center">
+        <div className="inline-flex items-center bg-white/60 backdrop-blur-md rounded-full p-1 shadow-sm border border-white/50">
+          <button
+            onClick={() => setNavigationMode(true)}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
+              navigationMode
+                ? 'bg-primary-500 text-white shadow-cute'
+                : 'text-gray-500 hover:text-gray-700'
+            }`}
+          >
+            <Icons.Navigation size={12} />
+            <span>導航</span>
+          </button>
+          <button
+            onClick={() => setNavigationMode(false)}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
+              !navigationMode
+                ? 'bg-success-500 text-white shadow-sm'
+                : 'text-gray-500 hover:text-gray-700'
+            }`}
+          >
+            <Icons.MapPin size={12} />
+            <span>查看</span>
+          </button>
+        </div>
       </div>
     </div>
   );
