@@ -16,60 +16,52 @@ export default function App() {
   // 獲取當前日期資料
   const currentDayData = ITINERARY_DATA_ENHANCED.find((d) => d.id === activeDayId);
 
-  // 獲取當前天氣資料（暫時使用 Mock 資料）
+  // 獲取當前天氣資料
   const currentWeather = currentDayData ? WEATHER_MOCK_DATA[currentDayData.isoDate] : null;
 
   return (
-    <div className="min-h-screen pb-24 font-sans text-gray-800 max-w-md mx-auto shadow-elegant overflow-hidden relative bg-white">
-      {/* Header */}
-      <Header dayData={currentDayData} weather={currentWeather} />
+    <div className="min-h-screen font-sans text-gray-800 flex justify-center selection:bg-primary-200">
+      <div className="w-full max-w-md relative min-h-screen pb-28">
 
-      {/* Main Content Area */}
-      <div className="px-4 -mt-6 relative z-20">
-        {/* Timeline View - 行程 */}
-        {activeTab === 'timeline' && (
-          <>
-            <div className="bg-white rounded-2xl shadow-lg p-1 mb-6">
+        {/* Header */}
+        <Header dayData={currentDayData} weather={currentWeather} />
+
+        {/* Main Content Area */}
+        <div className="px-5 -mt-4 relative z-20 space-y-6">
+
+          {/* Day Selector (Context Aware) */}
+          {(activeTab === 'timeline' || activeTab === 'map') && (
+            <div className="animate-in slide-up">
               <DaySelector
                 days={ITINERARY_DATA_ENHANCED}
                 activeDay={activeDayId}
                 setActiveDay={setActiveDayId}
               />
             </div>
-            <TimelineView dayData={currentDayData} />
-          </>
-        )}
+          )}
 
-        {/* Gourmet View - 美食 */}
-        {activeTab === 'gourmet' && (
-          <GourmetView
-            dayData={currentDayData}
-            allDays={ITINERARY_DATA_ENHANCED}
-            activeDayId={activeDayId}
-            setActiveDayId={setActiveDayId}
-          />
-        )}
+          {/* Views */}
+          <main className="animate-in fade-in transition-all duration-500">
+            {activeTab === 'timeline' && <TimelineView dayData={currentDayData} />}
 
-        {/* Map View - 地圖 */}
-        {activeTab === 'map' && (
-          <div className="animate-in zoom-in duration-300">
-            <div className="bg-white rounded-2xl shadow-lg p-1 mb-6">
-              <DaySelector
-                days={ITINERARY_DATA_ENHANCED}
-                activeDay={activeDayId}
-                setActiveDay={setActiveDayId}
+            {activeTab === 'gourmet' && (
+              <GourmetView
+                dayData={currentDayData}
+                allDays={ITINERARY_DATA_ENHANCED}
+                activeDayId={activeDayId}
+                setActiveDayId={setActiveDayId}
               />
-            </div>
-            <MapView dayData={currentDayData} />
-          </div>
-        )}
+            )}
 
-        {/* Shopping View - 必買清單 */}
-        {activeTab === 'shopping' && <ShoppingView />}
+            {activeTab === 'map' && <MapView dayData={currentDayData} />}
+
+            {activeTab === 'shopping' && <ShoppingView />}
+          </main>
+        </div>
+
+        {/* Bottom Navigation */}
+        <TabNav activeTab={activeTab} setActiveTab={setActiveTab} />
       </div>
-
-      {/* Bottom Navigation */}
-      <TabNav activeTab={activeTab} setActiveTab={setActiveTab} />
     </div>
   );
 }

@@ -7,74 +7,82 @@ import {
   MapPin,
   Map,
   Circle,
-  Clock
+  Clock,
+  Camera
 } from 'lucide-react';
 
-export default function TimelineItem({ activity, isLast }) {
+export default function TimelineItem({ activity, isLast, index }) {
   const getIcon = (type) => {
     switch (type) {
-      case 'transport':
-        return <Navigation size={18} className="text-blue-500" />;
-      case 'drive':
-        return <Car size={18} className="text-indigo-600" />;
-      case 'food':
-        return <Utensils size={18} className="text-amber-500" />;
-      case 'shopping':
-        return <ShoppingBag size={18} className="text-rose-500" />;
-      case 'highlight':
-        return <Star size={18} className="text-purple-500" />;
-      case 'stay':
-        return <MapPin size={18} className="text-emerald-600" />;
-      case 'sight':
-        return <Map size={18} className="text-cyan-600" />;
-      default:
-        return <Circle size={18} className="text-gray-400" />;
+      case 'transport': return <Navigation size={18} className="text-blue-400" />;
+      case 'drive': return <Car size={18} className="text-primary-400" />;
+      case 'food': return <Utensils size={18} className="text-accent-400" />;
+      case 'shopping': return <ShoppingBag size={18} className="text-pink-400" />;
+      case 'highlight': return <Star size={18} className="text-yellow-400 fill-yellow-400" />;
+      case 'stay': return <MapPin size={18} className="text-green-500" />;
+      case 'sight': return <Camera size={18} className="text-indigo-400" />;
+      default: return <Circle size={18} className="text-gray-300" />;
     }
   };
 
-  return (
-    <div className="flex gap-4 relative" id={`activity-${activity.time}`}>
-      {/* Time Column */}
-      <div className="flex flex-col items-center w-12 flex-shrink-0">
-        <span className="text-xs font-bold text-gray-500 font-mono">{activity.time}</span>
-        <div className={`h-full w-0.5 mt-2 ${isLast ? 'bg-transparent' : 'bg-gray-200'}`}></div>
-      </div>
+  const getTypeStyle = (type) => {
+    if (type === 'highlight') return 'bg-gradient-to-r from-yellow-50 to-orange-50 border-yellow-100';
+    if (type === 'food') return 'bg-white border-accent-100';
+    return 'bg-white border-white/60';
+  };
 
-      {/* Content Column */}
-      <div className="flex-1 pb-8 group">
-        <div className="flex items-start gap-3">
-          <div className="mt-0 bg-white p-2 rounded-full shadow-sm border border-gray-100 z-10 relative">
+  return (
+    <div
+      className="relative z-10 animate-in slide-up"
+      style={{ animationDelay: `${index * 0.1}s` }}
+    >
+      <div className="flex gap-4">
+        {/* Time & Icon Column */}
+        <div className="flex flex-col items-center flex-shrink-0 w-14 pt-1">
+          <div className="bg-white p-2.5 rounded-full shadow-cute border border-white z-10 mb-2 transition-transform hover:scale-110 active:scale-95 duration-300">
             {getIcon(activity.type)}
           </div>
+          <span className="text-[10px] font-bold text-gray-400 bg-white/60 px-2 rounded-full backdrop-blur-sm">
+            {activity.time}
+          </span>
+        </div>
 
-          <div className="flex-1 bg-white p-4 rounded-xl shadow-sm border border-gray-50 transition-all hover:shadow-md hover:border-indigo-100">
-            <h3
-              className={`font-bold text-gray-800 ${
-                activity.type === 'highlight' ? 'text-indigo-900' : ''
-              }`}
-            >
-              {activity.title}
-            </h3>
-            <p className="text-sm text-gray-500 mt-1 leading-relaxed">{activity.detail}</p>
+        {/* Content Bubble */}
+        <div className="flex-1 min-w-0">
+          <div
+            className={`relative p-4 rounded-3xl shadow-card hover:shadow-soft transition-all duration-300 group ${getTypeStyle(activity.type)}`}
+          >
+            {/* Cute connector triangle */}
+            <div className="absolute top-5 -left-2 w-4 h-4 bg-white transform rotate-45 rounded-sm z-0"></div>
 
-            {/* Smoothness Indicator for Driving */}
-            {activity.type === 'drive' && activity.duration && (
-              <div className="mt-3 bg-indigo-50 rounded-lg p-2.5 flex items-center gap-3">
-                <Clock size={14} className="text-indigo-400" />
-                <div className="flex-1">
-                  <div className="flex justify-between text-xs text-indigo-600 mb-1">
-                    <span>移動耗時</span>
-                    <span className="font-bold">{activity.duration}</span>
+            <div className="relative z-10">
+              <h3 className={`font-bold text-base mb-1 ${activity.type === 'highlight' ? 'text-gray-800' : 'text-gray-700'
+                }`}>
+                {activity.title}
+              </h3>
+
+              <p className="text-sm text-gray-500 leading-relaxed">
+                {activity.detail}
+              </p>
+
+              {/* Driving details */}
+              {activity.type === 'drive' && activity.duration && (
+                <div className="mt-3 bg-primary-50/50 rounded-xl p-2.5 flex items-center gap-3 border border-primary-100/30">
+                  <div className="bg-white p-1.5 rounded-full text-primary-400">
+                    <Clock size={12} />
                   </div>
-                  <div className="h-1.5 bg-indigo-100 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-indigo-500 rounded-full"
-                      style={{ width: '80%' }}
-                    ></div>
+                  <div className="flex-1">
+                    <div className="flex justify-between text-xs text-primary-600 mb-1 font-bold">
+                      <span>移動時間</span>
+                      <span>{activity.duration}</span>
+                    </div>
+                    <div className="h-1.5 bg-white rounded-full overflow-hidden">
+                      <div className="h-full bg-primary-300 rounded-full w-[80%]"></div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </div>

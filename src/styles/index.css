@@ -1,26 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Quicksand:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* 自訂全域樣式 - 頂尖品牌設計風格 */
-
 @layer base {
   body {
-    @apply bg-gradient-to-br from-primary-50 via-white to-accent-50 text-gray-800;
-    font-family: 'SF Pro Display', 'Inter', 'Noto Sans TC', system-ui, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    @apply bg-orange-50/30 text-gray-700 antialiased;
+    font-family: 'Quicksand', 'M PLUS Rounded 1c', sans-serif;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(255, 194, 218, 0.2) 0%, transparent 20%),
+      radial-gradient(circle at 90% 80%, rgba(255, 237, 213, 0.3) 0%, transparent 25%);
+    background-attachment: fixed;
   }
 
-  /* 優雅的標題樣式 */
-  h1, h2, h3 {
-    @apply font-display;
-    letter-spacing: -0.02em;
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold text-gray-800;
   }
 }
 
 @layer utilities {
-  /* 隱藏滾動條 */
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/50;
+  }
+  
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-sm border border-white/60 shadow-card hover:shadow-soft transition-all duration-300;
+  }
+
+  /* Cute Button Base */
+  .btn-cute {
+    @apply px-6 py-2 rounded-pill font-bold transition-all duration-300 transform active:scale-95 shadow-cute hover:shadow-cute-hover hover:-translate-y-0.5;
+  }
+
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -28,127 +40,22 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
-
-  /* 時尚玻璃效果 */
-  .glass-effect {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  }
-
-  /* 優雅漸變背景 */
-  .gradient-primary {
-    background: linear-gradient(135deg, #6b7fff 0%, #5563f5 100%);
-  }
-
-  .gradient-accent {
-    background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
-  }
-
-  .gradient-rose {
-    background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
-  }
-
-  /* 動畫類別 - 更流暢 */
-  .animate-in {
-    animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .fade-in {
-    animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .slide-in-from-right {
-    animation: slideInFromRight 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .slide-up {
-    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .zoom-in {
-    animation: zoomIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  /* 柔和陰影 */
-  .shadow-elegant {
-    box-shadow: 0 4px 24px rgba(107, 127, 255, 0.12);
-  }
-
-  .shadow-warm {
-    box-shadow: 0 4px 24px rgba(251, 146, 60, 0.12);
-  }
 }
 
-/* 關鍵影格動畫 - 優雅流暢 */
+/* Custom Animations */
+.animate-in {
+  animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes slideInFromRight {
-  from {
-    transform: translateX(24px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes zoomIn {
-  from {
-    transform: scale(0.96);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-/* 骨架屏動畫 - 柔和 */
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.6;
-  }
-}
-
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-/* 可愛彈跳效果 */
-@keyframes bounce-soft {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-4px);
-  }
-}
-
-.hover-bounce:hover {
-  animation: bounce-soft 0.5s ease-in-out;
+/* Decorative Blobs */
+.blob-shape {
+  position: absolute;
+  filter: blur(40px);
+  z-index: -1;
+  opacity: 0.6;
 }
