@@ -7,28 +7,8 @@ import { MAP_CONFIG, MAP_OPTIONS } from '@config/maps';
 
 export default function MapView({ dayData }) {
   const [selectedMarker, setSelectedMarker] = useState(null);
-  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-
-  // 如果沒有 API Key，顯示提示
-  if (!apiKey || apiKey === 'your_google_maps_api_key_here') {
-    return (
-      <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 text-center">
-        <h3 className="text-lg font-bold text-amber-900 mb-2">請設定 Google Maps API Key</h3>
-        <p className="text-sm text-amber-700 mb-4">
-          請在 <code className="bg-amber-100 px-2 py-1 rounded">.env.local</code> 檔案中設定{' '}
-          <code className="bg-amber-100 px-2 py-1 rounded">VITE_GOOGLE_MAPS_API_KEY</code>
-        </p>
-        <a
-          href="https://console.cloud.google.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-amber-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-amber-700"
-        >
-          前往 Google Cloud Console
-        </a>
-      </div>
-    );
-  }
+  // Google Maps API Key (寫死在程式碼中)
+  const apiKey = 'AIzaSyDcs-sKtNk8tnuwofLKmf6qBCEsABeGoR8';
 
   return (
     <APIProvider apiKey={apiKey}>
