@@ -566,19 +566,61 @@ export const ITINERARY_DATA_ENHANCED = [
     activities: [
       {
         time: "09:00",
-        type: "transport",
-        title: "格蘭德里奧 出發",
-        detail: "飯店早餐後退房 → 午餐在阿蘇解決 (12:30啟程)",
-        coordinates: { lat: 32.9230, lng: 130.9850 }
+        type: "highlight",
+        title: "大觀峰 絕景展望",
+        detail: "阿蘇最具代表性展望台 | 360度眺望阿蘇五岳 | 釋迦涅槃像絕景",
+        locationKey: "daikanbo",
+        googleRating: 4.6,
+        coordinates: { lat: 32.996728, lng: 131.066974 },
+        mapUrl: "https://www.google.com/maps/search/Daikanbo+Lookout"
+      },
+      {
+        time: "10:30",
+        type: "food",
+        title: "阿蘇 Imakin 食堂",
+        detail: "【百年名店】赤牛丼創始店 | 1910年創業 | 務必先登記候位",
+        locationKey: "imakin",
+        googleRating: 4.3,
+        coordinates: { lat: 32.974950, lng: 131.039310 },
+        mapUrl: "https://www.google.com/maps/search/Imakin+Shokudo"
+      },
+      {
+        time: "11:30",
+        type: "highlight",
+        title: "阿蘇神社 參拜",
+        detail: "2500年歷史古社 | 神之泉名水 | 門前町散策",
+        locationKey: "aso_shrine",
+        googleRating: 4.4,
+        coordinates: { lat: 32.947930, lng: 131.123510 },
+        mapUrl: "https://www.google.com/maps/search/Aso+Shrine"
       },
       {
         time: "12:30",
         type: "drive",
         title: "開車返回福岡",
-        detail: "高速公路 3小時 | 17:30 前還車",
+        detail: "高速公路約3小時 | 途中停靠南藏院 & 山田SA",
         duration: "180m",
         locationKey: "highway",
         coordinates: { lat: 33.3000, lng: 130.7000 }
+      },
+      {
+        time: "14:30",
+        type: "highlight",
+        title: "南藏院 (世界最大臥佛)",
+        detail: "【必看】全球最大青銅臥佛 (長41m) | 福岡最強能量景點 | 住持中1.3億彩券傳說",
+        locationKey: "nanzoin",
+        googleRating: 4.7,
+        coordinates: { lat: 33.619839, lng: 130.572935 },
+        mapUrl: "https://www.google.com/maps/search/Nanzoin+Temple"
+      },
+      {
+        time: "15:30",
+        type: "transport",
+        title: "山田服務區 休息",
+        detail: "必買「朝倉蛋糕捲」與「八女茶」甜點",
+        locationKey: "yamada_sa",
+        coordinates: { lat: 33.385310, lng: 130.764580 },
+        mapUrl: "https://www.google.com/maps/search/Yamada+Service+Area"
       },
       {
         time: "17:30",
@@ -586,65 +628,151 @@ export const ITINERARY_DATA_ENHANCED = [
         title: "還車：Budget 筑紫口",
         detail: "還車後搭計程車/Uber至飯店",
         locationKey: "budget_return",
-        coordinates: { lat: 33.5885, lng: 130.4255 }
+        coordinates: { lat: 33.590820, lng: 130.424350 },
+        mapUrl: "https://www.google.com/maps/search/Budget+Rent+a+Car+Hakata"
+      },
+      {
+        time: "18:00",
+        type: "highlight",
+        title: "Acros 福岡 (天神之森)",
+        detail: "階梯狀綠建築 | 都市中的綠洲 | 可沿步道走上去",
+        locationKey: "acros_fukuoka",
+        googleRating: 4.4,
+        coordinates: { lat: 33.591900, lng: 130.402200 },
+        mapUrl: "https://www.google.com/maps/search/ACROS+Fukuoka"
       },
       {
         time: "18:30",
         type: "stay",
         title: "MYSTAYS 天神 Check-in",
-        detail: "位於天神商圈，交通便利",
+        detail: "位於天神親富孝通 | 交通便利的高CP值飯店",
         locationKey: "mystays_tenjin",
         googleRating: 4.1,
-        coordinates: { lat: 33.5912, lng: 130.3950 }
+        coordinates: { lat: 33.592530, lng: 130.396550 },
+        mapUrl: "https://www.google.com/maps/search/Hotel+MYSTAYS+Fukuoka+Tenjin"
+      },
+      {
+        time: "19:00",
+        type: "food",
+        title: "鈴懸 本店 (百年和菓子)",
+        detail: "創業90年和菓子名店 | 鈴乃最中 | 草莓大福 | 附設茶房",
+        locationKey: "suzukake",
+        googleRating: 4.5,
+        coordinates: { lat: 33.595462, lng: 130.408226 },
+        mapUrl: "https://www.google.com/maps/search/Suzukake+Main+Shop"
       },
       {
         time: "19:30",
         type: "food",
-        title: "天神晚餐 (見推薦)",
-        detail: "Shirokane Nishida / 壽司 / 屋台",
+        title: "天神晚餐 (四選一)",
+        detail: "吉塚鰻魚屋 / 米其林懷石 / 人氣屋台 / Bar Oscar",
         locationKey: "tenjin_dinner",
         coordinates: { lat: 33.5910, lng: 130.3980 }
       }
     ],
     gourmet: [
       {
+        name: "阿蘇 Imakin 食堂",
+        type: "阿蘇赤牛丼",
+        tags: ["百年名店", "1910年創業", "排隊美食"],
+        desc: "阿蘇赤牛丼創始店，鋪滿半熟溫泉蛋與赤牛切片，視覺與味覺雙重享受。務必先登記候位。",
+        locationKey: "imakin",
+        googleRating: 4.3,
+        michelin: false,
+        coordinates: { lat: 32.974950, lng: 131.039310 },
+        mapUrl: "https://www.google.com/maps/search/Imakin+Shokudo"
+      },
+      {
+        name: "博多名代 吉塚鰻魚屋",
+        type: "鰻魚飯",
+        tags: ["150年歷史", "福岡鰻魚飯頂點", "外酥內嫩"],
+        desc: "創業150年的福岡鰻魚飯名店，獨特烤法外酥內嫩，是福岡必吃的傳奇美食。",
+        locationKey: "yoshizuka_unagi",
+        googleRating: 4.4,
+        michelin: false,
+        coordinates: { lat: 33.592180, lng: 130.408420 },
+        mapUrl: "https://www.google.com/maps/search/Yoshizuka+Unagiya"
+      },
+      {
         name: "Shirokane Nishida (白金 にし田)",
         type: "精緻懷石",
-        tags: ["米其林一星⭐", "Google 4.7⭐", "頂級"],
+        tags: ["米其林一星⭐", "完全預約制", "頂級"],
         desc: "展現季節之美的日本料理，主廚手藝精湛，高湯濃郁優雅，是福岡極致的味覺體驗。",
         locationKey: "shirokane_nishida",
         googleRating: 4.7,
         michelin: true,
-        coordinates: { lat: 33.5800, lng: 130.4030 }
+        coordinates: { lat: 33.589000, lng: 130.406000 },
+        mapUrl: "https://www.google.com/maps/search/Shirokane+Nishida"
       },
       {
-        name: "Chakaiseki Nakahan (茶懐石 中伴)",
-        type: "懷石料理",
-        tags: ["隱密高雅", "Google 4.5⭐"],
-        desc: "西中洲的隱密名店，氛圍寧靜高雅，料理細膩，適合重要的晚餐時刻。",
+        name: "茶懐石 中伴 (Chakaiseki Nakahan)",
+        type: "茶懷石",
+        tags: ["米其林推薦", "西中洲隱密名店"],
+        desc: "西中洲的隱密名店，正統茶懷石，氛圍寧靜高雅，適合重要的晚餐時刻。",
         locationKey: "nakahan",
         googleRating: 4.5,
         michelin: true,
-        coordinates: { lat: 33.5905, lng: 130.4045 }
+        coordinates: { lat: 33.591000, lng: 130.405000 },
+        mapUrl: "https://www.google.com/maps/search/Chakaiseki+Nakahan"
       },
       {
-        name: "Yatai Yappari (屋台 やっぱり)",
+        name: "屋台 Mami-chan",
         type: "屋台美食",
-        tags: ["天神人氣", "炒拉麵"],
-        desc: "位於天神南的熱門屋台，炒拉麵和關東煮非常受歡迎，氣氛熱鬧。",
-        locationKey: "yatai_yappari",
-        googleRating: 4.0,
+        tags: ["4.5星人氣", "親切美味", "不擠人"],
+        desc: "天神人氣屋台，氣氛溫馨親切，不想去中洲人擠人的最佳選擇。",
+        locationKey: "yatai_mamichan",
+        googleRating: 4.5,
         michelin: false,
-        coordinates: { lat: 33.5880, lng: 130.4010 }
+        coordinates: { lat: 33.589800, lng: 130.399500 },
+        mapUrl: "https://www.google.com/maps/search/Yatai+Mamichan"
+      },
+      {
+        name: "Bar Oscar",
+        type: "調酒酒吧",
+        tags: ["世界調酒冠軍", "大名區", "正統酒吧"],
+        desc: "想要小酌一杯，這裡是福岡調酒界的聖地，世界冠軍調酒師坐鎮。",
+        locationKey: "bar_oscar",
+        googleRating: 4.6,
+        michelin: false,
+        coordinates: { lat: 33.587500, lng: 130.396000 },
+        mapUrl: "https://www.google.com/maps/search/Bar+Oscar+Fukuoka"
+      },
+      {
+        name: "鈴懸 本店",
+        type: "百年和菓子",
+        tags: ["創業90年", "鈴乃最中", "草莓大福"],
+        desc: "福岡頂級和菓子名店，店內氛圍優雅，附設茶房可享用精緻甜點。",
+        locationKey: "suzukake",
+        googleRating: 4.5,
+        michelin: false,
+        coordinates: { lat: 33.595462, lng: 130.408226 },
+        mapUrl: "https://www.google.com/maps/search/Suzukake+Main+Shop"
       }
     ],
     shopping: [
       {
-        name: "天神地下街",
-        type: "購物街",
-        tags: ["必逛", "好買"],
-        desc: "全長600公尺，風格優雅的地下商店街，服飾、雜貨、美食林立。",
-        coordinates: { lat: 33.5910, lng: 130.3980 }
+        name: "阿蘇神社 門前町",
+        type: "商店街",
+        tags: ["特色小店", "土產"],
+        desc: "阿蘇神社參道上的特色商店街，可購買當地土產。",
+        coordinates: { lat: 32.947930, lng: 131.123510 },
+        mapUrl: "https://www.google.com/maps/search/Aso+Shrine"
+      },
+      {
+        name: "山田服務區",
+        type: "高速公路休息站",
+        tags: ["朝倉蛋糕捲", "八女茶"],
+        desc: "高速公路必停休息站，推薦購買朝倉蛋糕捲與八女茶甜點。",
+        coordinates: { lat: 33.385310, lng: 130.764580 },
+        mapUrl: "https://www.google.com/maps/search/Yamada+Service+Area"
+      },
+      {
+        name: "Acros 福岡",
+        type: "綠建築景點",
+        tags: ["天神之森", "階梯步道"],
+        desc: "階梯狀綠建築，外觀種滿樹木如都市中的山，可沿步道走上去眺望天神。",
+        coordinates: { lat: 33.591900, lng: 130.402200 },
+        mapUrl: "https://www.google.com/maps/search/ACROS+Fukuoka"
       }
     ]
   },

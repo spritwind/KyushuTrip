@@ -42,6 +42,73 @@ export const LOCATIONS = {
   kokonoe_ski: { lat: 33.1342, lng: 131.2361, name: "九重森林公園滑雪場" },
   sujiyu_onsen: { lat: 33.1539, lng: 131.2258, name: "筋湯溫泉 旅館 Nanakamado" },
 
+  // Day 6 - 返回福岡與天神之夜
+  daikanbo: {
+    lat: 32.996728, lng: 131.066974,
+    name: "大觀峰",
+    mapUrl: "https://www.google.com/maps/search/Daikanbo+Lookout"
+  },
+  imakin: {
+    lat: 32.974950, lng: 131.039310,
+    name: "阿蘇 Imakin 食堂",
+    mapUrl: "https://www.google.com/maps/search/Imakin+Shokudo"
+  },
+  aso_shrine: {
+    lat: 32.947930, lng: 131.123510,
+    name: "阿蘇神社",
+    mapUrl: "https://www.google.com/maps/search/Aso+Shrine"
+  },
+  nanzoin: {
+    lat: 33.619839, lng: 130.572935,
+    name: "南藏院 (世界最大臥佛)",
+    mapUrl: "https://www.google.com/maps/search/Nanzoin+Temple"
+  },
+  yamada_sa: {
+    lat: 33.385310, lng: 130.764580,
+    name: "山田服務區",
+    mapUrl: "https://www.google.com/maps/search/Yamada+Service+Area"
+  },
+  acros_fukuoka: {
+    lat: 33.591900, lng: 130.402200,
+    name: "Acros 福岡 (天神之森)",
+    mapUrl: "https://www.google.com/maps/search/ACROS+Fukuoka"
+  },
+  mystays_tenjin: {
+    lat: 33.592530, lng: 130.396550,
+    name: "MYSTAYS 福岡天神",
+    mapUrl: "https://www.google.com/maps/search/Hotel+MYSTAYS+Fukuoka+Tenjin"
+  },
+  suzukake: {
+    lat: 33.595462, lng: 130.408226,
+    name: "鈴懸 本店",
+    mapUrl: "https://www.google.com/maps/search/Suzukake+Main+Shop"
+  },
+  yoshizuka_unagi: {
+    lat: 33.592180, lng: 130.408420,
+    name: "博多名代 吉塚鰻魚屋",
+    mapUrl: "https://www.google.com/maps/search/Yoshizuka+Unagiya"
+  },
+  yatai_mamichan: {
+    lat: 33.589800, lng: 130.399500,
+    name: "屋台 Mami-chan",
+    mapUrl: "https://www.google.com/maps/search/Yatai+Mamichan"
+  },
+  bar_oscar: {
+    lat: 33.587500, lng: 130.396000,
+    name: "Bar Oscar",
+    mapUrl: "https://www.google.com/maps/search/Bar+Oscar+Fukuoka"
+  },
+  shirokane_nishida: {
+    lat: 33.589000, lng: 130.406000,
+    name: "白金 にし田",
+    mapUrl: "https://www.google.com/maps/search/Shirokane+Nishida"
+  },
+  nakahan: {
+    lat: 33.591000, lng: 130.405000,
+    name: "茶懐石 中伴",
+    mapUrl: "https://www.google.com/maps/search/Chakaiseki+Nakahan"
+  },
+
   // Day 7 - 福岡 (鋼彈與博多傳統文化)
   kushida_shrine: {
     lat: 33.593026, lng: 130.410744,
