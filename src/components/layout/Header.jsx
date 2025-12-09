@@ -1,11 +1,16 @@
 import * as Icons from 'lucide-react';
 import AnimatedWeatherIcon from '@components/weather/AnimatedWeatherIcon';
 
-// 每日主要景點地標配置
+// 每日主要景點地標配置 (完整 8 天)
 const DAY_LANDMARKS = {
   1: { icon: 'Plane', name: '福岡', subtext: '博多' },
   2: { icon: 'Flame', name: '別府', subtext: '地獄巡禮' },
-  3: { icon: 'Snowflake', name: '九重', subtext: '滑雪場' }
+  3: { icon: 'Snowflake', name: '由布院', subtext: '金鱗湖' },
+  4: { icon: 'Mountain', name: '阿蘇', subtext: '大觀峰' },
+  5: { icon: 'Sparkles', name: '阿蘇', subtext: '草千里' },
+  6: { icon: 'Car', name: '福岡', subtext: '天神' },
+  7: { icon: 'ShoppingBag', name: '福岡', subtext: '鋼彈' },
+  8: { icon: 'PlaneTakeoff', name: '福岡', subtext: '返程' }
 };
 
 export default function Header({ dayData, weather, navigationMode, setNavigationMode }) {
