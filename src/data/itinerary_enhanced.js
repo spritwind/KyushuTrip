@@ -660,68 +660,152 @@ export const ITINERARY_DATA_ENHANCED = [
       {
         time: "10:00",
         type: "highlight",
-        title: "櫛田神社",
-        detail: "博多總鎮守 | 觀賞巨大山笠",
+        title: "櫛田神社 & 川端通商店街",
+        detail: "博多總鎮守 | 觀賞巨大裝飾山笠 | 百年甜點巡禮",
         locationKey: "kushida",
         googleRating: 4.4,
-        coordinates: { lat: 33.5930, lng: 130.4105 }
+        coordinates: { lat: 33.593026, lng: 130.410744 },
+        mapUrl: "https://www.google.com/maps/place/%E6%AB%9B%E7%94%B0%E7%A5%9E%E7%A4%BE/"
       },
       {
         time: "11:30",
         type: "shopping",
         title: "Lalaport 福岡",
-        detail: "1:1 RX-93ff ν鋼彈 | 購物午餐",
+        detail: "1:1 RX-93ff ν鋼彈立像 | 購物午餐 | GUNDAM SIDE-F",
         locationKey: "lalaport",
         googleRating: 4.4,
-        coordinates: { lat: 33.5650, lng: 130.4280 }
+        coordinates: { lat: 33.564491, lng: 130.441434 },
+        mapUrl: "https://www.google.com/maps/place/%E4%B8%89%E4%BA%95%E3%82%B7%E3%83%A7%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0%E3%83%91%E3%83%BC%E3%82%AF+%E3%82%89%E3%82%89%E3%81%BD%E3%83%BC%E3%81%A8%E7%A6%8F%E5%B2%A1/"
       },
       {
         time: "16:00",
         type: "shopping",
-        title: "天神商圈 最後採買",
-        detail: "岩田屋 / 大丸 / PARCO",
-        locationKey: "tenjin_shop",
+        title: "天神地下街 & 商圈",
+        detail: "九州最大地下街 (600米) | 歐風設計 | RINGO蘋果派 | BAKE起司塔",
+        locationKey: "tenjin_chikagai",
         googleRating: 4.3,
-        coordinates: { lat: 33.5900, lng: 130.3980 }
+        coordinates: { lat: 33.590050, lng: 130.399630 },
+        mapUrl: "https://www.google.com/maps/place/%E5%A4%A9%E7%A5%9E%E5%9C%B0%E4%B8%8B%E8%A1%97/"
       },
       {
         time: "19:00",
         type: "food",
         title: "慶功宴晚餐",
-        detail: "回味福岡美食 (牛腸鍋/燒肉)",
+        detail: "米其林牛腸鍋 或 頂級A5和牛燒肉 (三選一)",
         locationKey: "final_dinner",
-        coordinates: { lat: 33.5900, lng: 130.4000 }
+        coordinates: { lat: 33.587825, lng: 130.392341 }
       }
     ],
     gourmet: [
       {
-        name: "Motsunabe Ooyama (もつ鍋 おおやま)",
+        name: "博多牛腸鍋 山中 赤坂店",
         type: "牛腸鍋",
-        tags: ["Google 4.3⭐", "口味濃郁"],
-        desc: "味噌口味牛腸鍋一絕，福岡最具代表性的美食之一。",
-        locationKey: "ooyama",
+        tags: ["米其林推薦", "裝潢氣派"],
+        desc: "米其林推薦，味噌口味一絕，氣派裝潢適合慶功宴。",
+        locationKey: "yamanaka_motsunabe",
         googleRating: 4.3,
-        michelin: false,
-        coordinates: { lat: 33.5910, lng: 130.4200 }
+        michelin: true,
+        coordinates: { lat: 33.587825, lng: 130.392341 },
+        mapUrl: "https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A%E3%82%82%E3%81%A4%E9%8D%8B+%E3%82%84%E3%81%BE%E4%B8%AD+%E8%B5%A4%E5%9D%82%E5%BA%97/"
       },
       {
-        name: "Yakiniku Champion",
-        type: "和牛燒肉",
-        tags: ["JR博多城10F", "A5和牛"],
-        desc: "可以吃到各種稀有部位的頂級燒肉，Lalaport 內也有分店。",
-        locationKey: "champion",
+        name: "燒肉 須藤 春吉",
+        type: "頂級燒肉",
+        tags: ["專人代烤", "A5和牛", "需預約"],
+        desc: "頂級專人代烤服務，嚴選A5和牛，極致燒肉體驗。",
+        locationKey: "sudo_yakiniku",
+        googleRating: 4.5,
+        michelin: false,
+        coordinates: { lat: 33.588880, lng: 130.405360 },
+        mapUrl: "https://www.google.com/maps/place/%E7%84%BC%E8%82%89+%E3%81%99%E3%81%A9%E3%81%86+%E6%98%A5%E5%90%89/"
+      },
+      {
+        name: "博多燒肉 NIKUICHI 藥院店",
+        type: "黑毛和牛燒肉",
+        tags: ["高CP值", "在地人氣"],
+        desc: "高CP值黑毛和牛，在地人氣店，不需預約也能享用好肉。",
+        locationKey: "nikuichi",
+        googleRating: 4.4,
+        michelin: false,
+        coordinates: { lat: 33.581530, lng: 130.402480 },
+        mapUrl: "https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A%E7%84%BC%E8%82%89+NIKUICHI+%E8%96%AC%E9%99%A2%E5%BA%97/"
+      },
+      {
+        name: "石村萬世堂 本店",
+        type: "百年甜點",
+        tags: ["明治38年創立", "白色情人節發源地"],
+        desc: "必吃「鶴乃子」，白色情人節發源地，百年傳統和菓子。",
+        locationKey: "ishimura_manseido",
         googleRating: 4.2,
         michelin: false,
-        coordinates: { lat: 33.5900, lng: 130.4200 }
+        coordinates: { lat: 33.595462, lng: 130.408226 },
+        mapUrl: "https://www.google.com/maps/place/%E7%9F%B3%E6%9D%91%E8%90%AC%E7%9B%9B%E5%A0%82+%E6%9C%AC%E5%BA%97/"
+      },
+      {
+        name: "櫛田茶屋",
+        type: "烤麻糬",
+        tags: ["神社旁", "現烤"],
+        desc: "位於櫛田神社旁，必吃剛烤好的「焼き餅」(烤麻糬)。",
+        locationKey: "kushida_chaya",
+        googleRating: 4.3,
+        michelin: false,
+        coordinates: { lat: 33.592881, lng: 130.410515 },
+        mapUrl: "https://www.google.com/maps/place/%E6%AB%9B%E7%94%B0%E8%8C%B6%E5%B1%8B/"
+      },
+      {
+        name: "炸豬排 知青 (Lalaport)",
+        type: "炸豬排",
+        tags: ["Google 4.5⭐", "低溫熟成"],
+        desc: "Grand Dining 3F，低溫熟成豬肉，高CP值美味午餐選擇。",
+        locationKey: "tonkatsu_chisei",
+        googleRating: 4.5,
+        michelin: false,
+        coordinates: { lat: 33.564491, lng: 130.441434 }
+      },
+      {
+        name: "久留米拉麵 清陽軒 (Lalaport)",
+        type: "久留米拉麵",
+        tags: ["昭和27年創業", "老店"],
+        desc: "Grand Dining 3F，昭和27年創業的久留米拉麵老店。",
+        locationKey: "seiyoken",
+        googleRating: 4.3,
+        michelin: false,
+        coordinates: { lat: 33.564491, lng: 130.441434 },
+        mapUrl: "https://www.google.com/maps/place/%E4%B9%85%E7%95%99%E7%B1%B3%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3%E6%B8%85%E9%99%BD%E8%BB%92+%E3%82%89%E3%82%89%E3%81%BD%E3%83%BC%E3%81%A8%E7%A6%8F%E5%B2%A1%E5%BA%97/"
       }
     ],
     shopping: [
       {
         name: "Lalaport 福岡",
         type: "購物中心",
-        tags: ["鋼彈Park", "KidZania"],
-        desc: "不僅有巨大鋼彈，還有各種親子設施與九州初登場品牌。",
-        coordinates: { lat: 33.5650, lng: 130.4280 }
+        tags: ["鋼彈Park", "KidZania", "GUNDAM SIDE-F"],
+        desc: "1:1 ν鋼彈立像，4F有限定模型與博多聯名點心。",
+        coordinates: { lat: 33.564491, lng: 130.441434 },
+        mapUrl: "https://www.google.com/maps/place/%E4%B8%89%E4%BA%95%E3%82%B7%E3%83%A7%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0%E3%83%91%E3%83%BC%E3%82%AF+%E3%82%89%E3%82%89%E3%81%BD%E3%83%BC%E3%81%A8%E7%A6%8F%E5%B2%A1/"
+      },
+      {
+        name: "天神地下街",
+        type: "地下商店街",
+        tags: ["600米長", "歐風設計"],
+        desc: "九州最大地下街，歐風設計，必逛 RINGO 蘋果派、BAKE 起司塔。",
+        coordinates: { lat: 33.590050, lng: 130.399630 },
+        mapUrl: "https://www.google.com/maps/place/%E5%A4%A9%E7%A5%9E%E5%9C%B0%E4%B8%8B%E8%A1%97/"
+      },
+      {
+        name: "川端善哉廣場",
+        type: "景點",
+        tags: ["飾山笠展示", "必逛"],
+        desc: "商店街內展示巨大飾山笠的廣場，博多祭典文化體驗。",
+        coordinates: { lat: 33.593582, lng: 130.409385 },
+        mapUrl: "https://www.google.com/maps/place/%E5%B7%9D%E7%AB%AF%E3%81%9C%E3%82%93%E3%81%96%E3%81%84%E5%BA%83%E5%A0%B4/"
+      },
+      {
+        name: "GUNDAM SIDE-F",
+        type: "鋼彈專賣店",
+        tags: ["限定模型", "博多聯名"],
+        desc: "Lalaport 4F，販售限定模型與博多聯名點心伴手禮。",
+        coordinates: { lat: 33.564491, lng: 130.441434 },
+        mapUrl: "https://www.google.com/maps/place/GUNDAM+SIDE-F/"
       }
     ]
   },

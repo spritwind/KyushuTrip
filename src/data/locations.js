@@ -40,7 +40,68 @@ export const LOCATIONS = {
   cucuchi: { lat: 33.2657, lng: 131.3692, name: "鞠智 cucuchi" },
   yufuin_shoyu: { lat: 33.2656, lng: 131.3690, name: "由布院醬油屋本店" },
   kokonoe_ski: { lat: 33.1342, lng: 131.2361, name: "九重森林公園滑雪場" },
-  sujiyu_onsen: { lat: 33.1539, lng: 131.2258, name: "筋湯溫泉 旅館 Nanakamado" }
+  sujiyu_onsen: { lat: 33.1539, lng: 131.2258, name: "筋湯溫泉 旅館 Nanakamado" },
+
+  // Day 7 - 福岡 (鋼彈與博多傳統文化)
+  kushida_shrine: {
+    lat: 33.593026, lng: 130.410744,
+    name: "櫛田神社",
+    mapUrl: "https://www.google.com/maps/place/%E6%AB%9B%E7%94%B0%E7%A5%9E%E7%A4%BE/"
+  },
+  ishimura_manseido: {
+    lat: 33.595462, lng: 130.408226,
+    name: "石村萬世堂 本店",
+    mapUrl: "https://www.google.com/maps/place/%E7%9F%B3%E6%9D%91%E8%90%AC%E7%9B%9B%E5%A0%82+%E6%9C%AC%E5%BA%97/"
+  },
+  kushida_chaya: {
+    lat: 33.592881, lng: 130.410515,
+    name: "櫛田茶屋",
+    mapUrl: "https://www.google.com/maps/place/%E6%AB%9B%E7%94%B0%E8%8C%B6%E5%B1%8B/"
+  },
+  kawabata_zenzai: {
+    lat: 33.593582, lng: 130.409385,
+    name: "川端善哉廣場",
+    mapUrl: "https://www.google.com/maps/place/%E5%B7%9D%E7%AB%AF%E3%81%9C%E3%82%93%E3%81%96%E3%81%84%E5%BA%83%E5%A0%B4/"
+  },
+  lalaport_fukuoka: {
+    lat: 33.564491, lng: 130.441434,
+    name: "Lalaport 福岡",
+    mapUrl: "https://www.google.com/maps/place/%E4%B8%89%E4%BA%95%E3%82%B7%E3%83%A7%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0%E3%83%91%E3%83%BC%E3%82%AF+%E3%82%89%E3%82%89%E3%81%BD%E3%83%BC%E3%81%A8%E7%A6%8F%E5%B2%A1/"
+  },
+  gundam_sidef: {
+    lat: 33.564491, lng: 130.441434,
+    name: "GUNDAM SIDE-F",
+    mapUrl: "https://www.google.com/maps/place/GUNDAM+SIDE-F/"
+  },
+  tonkatsu_chisei: {
+    lat: 33.564491, lng: 130.441434,
+    name: "炸豬排 知青"
+  },
+  seiyoken_lalaport: {
+    lat: 33.564491, lng: 130.441434,
+    name: "久留米拉麵 清陽軒",
+    mapUrl: "https://www.google.com/maps/place/%E4%B9%85%E7%95%99%E7%B1%B3%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3%E6%B8%85%E9%99%BD%E8%BB%92+%E3%82%89%E3%82%89%E3%81%BD%E3%83%BC%E3%81%A8%E7%A6%8F%E5%B2%A1%E5%BA%97/"
+  },
+  tenjin_chikagai: {
+    lat: 33.590050, lng: 130.399630,
+    name: "天神地下街",
+    mapUrl: "https://www.google.com/maps/place/%E5%A4%A9%E7%A5%9E%E5%9C%B0%E4%B8%8B%E8%A1%97/"
+  },
+  yamanaka_motsunabe: {
+    lat: 33.587825, lng: 130.392341,
+    name: "博多牛腸鍋 山中 赤坂店",
+    mapUrl: "https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A%E3%82%82%E3%81%A4%E9%8D%8B+%E3%82%84%E3%81%BE%E4%B8%AD+%E8%B5%A4%E5%9D%82%E5%BA%97/"
+  },
+  sudo_yakiniku: {
+    lat: 33.588880, lng: 130.405360,
+    name: "燒肉 須藤 春吉",
+    mapUrl: "https://www.google.com/maps/place/%E7%84%BC%E8%82%89+%E3%81%99%E3%81%A9%E3%81%86+%E6%98%A5%E5%90%89/"
+  },
+  nikuichi_yakuin: {
+    lat: 33.581530, lng: 130.402480,
+    name: "博多燒肉 NIKUICHI 藥院店",
+    mapUrl: "https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A%E7%84%BC%E8%82%89+NIKUICHI+%E8%96%AC%E9%99%A2%E5%BA%97/"
+  }
 };
 
 // 每日路線座標陣列（用於繪製路線）
