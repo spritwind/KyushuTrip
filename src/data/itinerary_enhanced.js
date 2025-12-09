@@ -454,7 +454,7 @@ export const ITINERARY_DATA_ENHANCED = [
     id: 5,
     date: "1/25 (六)",
     isoDate: "2025-01-25",
-    title: "阿蘇火山直升機與神話神社",
+    title: "阿蘇神話與秘境探險",
     stay: "Grandvrio Hotel Aso (連泊)",
     location: "Aso",
     mapCenter: { lat: 32.8845, lng: 131.0500 },
@@ -462,96 +462,165 @@ export const ITINERARY_DATA_ENHANCED = [
       {
         time: "09:00",
         type: "highlight",
-        title: "草千里 & 阿蘇火山",
-        detail: "搭乘直升機 (30mins) | 觀景台玩雪重頭戲",
+        title: "草千里之濱 & 阿蘇火山",
+        detail: "直升機火山口見學 | 觀景台玩雪 | 銀白草原絕景",
         locationKey: "kusasenri",
         googleRating: 4.5,
-        coordinates: { lat: 32.8845, lng: 131.0530 }
+        coordinates: { lat: 32.885150, lng: 131.050600 },
+        mapUrl: "https://www.google.com/maps/search/Kusasenri+Parking"
+      },
+      {
+        time: "10:30",
+        type: "food",
+        title: "草千里咖啡焙煎所",
+        detail: "【IG爆紅】2021新開幕 | 手沖咖啡配雪景 | 文青必去",
+        locationKey: "kusasenri_coffee",
+        googleRating: 4.5,
+        coordinates: { lat: 32.884210, lng: 131.054450 },
+        mapUrl: "https://www.google.com/maps/search/Kusasenri+Coffee+Roastery"
       },
       {
         time: "12:00",
         type: "food",
-        title: "午餐：草千里景觀餐廳",
-        detail: "New Kusasenri 或周邊",
-        locationKey: "new_kusasenri",
-        googleRating: 4.0,
-        coordinates: { lat: 32.8845, lng: 131.0535 }
+        title: "午餐 (二選一)",
+        detail: "New Kusasenri 景觀餐廳 或 高森田樂保存會 (百年老店)",
+        locationKey: "lunch_choice",
+        coordinates: { lat: 32.884100, lng: 131.054800 }
       },
       {
         time: "13:30",
-        type: "drive",
-        title: "前往上色見熊野座神社",
-        detail: "車程約 32分鐘 | 螢火之森取景地",
-        duration: "32m",
-        locationKey: "shrine_drive",
-        coordinates: { lat: 32.8335, lng: 131.1520 }
+        type: "highlight",
+        title: "南阿蘇鐵道 高森站",
+        detail: "【海賊王朝聖】法蘭基銅像 | 昭和復古車站 | 順路必停",
+        locationKey: "takamori_station",
+        googleRating: 4.8,
+        coordinates: { lat: 32.819750, lng: 131.122680 },
+        mapUrl: "https://www.google.com/maps/search/Takamori+Station+Kumamoto"
       },
       {
         time: "14:10",
         type: "highlight",
         title: "上色見熊野座神社",
-        detail: "神秘的穿戶岩 | Google評分: 4.7⭐",
+        detail: "【螢火之森取景地】神秘石燈籠參道 | 穿戶岩能量景點 | 冬季積雪超夢幻",
         locationKey: "kamishikimi",
         googleRating: 4.7,
-        coordinates: { lat: 32.8335, lng: 131.1520 }
+        coordinates: { lat: 32.840780, lng: 131.164800 },
+        mapUrl: "https://www.google.com/maps/search/Kamishikimi+Kumanoza+Shrine+Parking"
       },
       {
         time: "16:00",
         type: "highlight",
         title: "白川水源",
-        detail: "日本名水百選 | 裝水體驗 (12分車程)",
+        detail: "【名水百選】每分鐘湧出60噸 | 藍色湧泉 | 可裝水帶走",
         locationKey: "shirakawa",
         googleRating: 4.4,
-        coordinates: { lat: 32.8340, lng: 131.0965 }
+        coordinates: { lat: 32.822950, lng: 131.082720 },
+        mapUrl: "https://www.google.com/maps/search/Shirakawa+Source"
+      },
+      {
+        time: "16:30",
+        type: "food",
+        title: "吉村 生Ikinari糰子",
+        detail: "【熊本名物】水源入口小店 | 熱騰騰地瓜紅豆糰子",
+        locationKey: "yoshimura_dango",
+        googleRating: 4.5,
+        coordinates: { lat: 32.822600, lng: 131.082500 },
+        mapUrl: "https://www.google.com/maps/search/Shirakawa+Suigen+Yoshimura"
       },
       {
         time: "18:00",
         type: "food",
-        title: "晚餐 & 採買",
-        detail: "返回飯店途中享用晚餐",
-        locationKey: "dinner_aso",
-        coordinates: { lat: 32.9000, lng: 131.0000 }
+        title: "晚餐：阿蘇料理 Hikoichi",
+        detail: "【在地人推薦】自家農場阿蘇赤牛 | 馬刺身 | 高CP值",
+        locationKey: "hikoichi",
+        googleRating: 4.5,
+        coordinates: { lat: 32.937660, lng: 131.119750 },
+        mapUrl: "https://www.google.com/maps/search/Aso+Ryori+Hikoichi"
       }
     ],
     gourmet: [
       {
+        name: "草千里咖啡焙煎所",
+        type: "景觀咖啡廳",
+        tags: ["IG爆紅", "2021新開幕", "文青必去"],
+        desc: "阿蘇最時尚的景觀咖啡廳，透過巨大玻璃窗欣賞草千里雪景，手沖咖啡香氣十足。",
+        locationKey: "kusasenri_coffee",
+        googleRating: 4.5,
+        michelin: false,
+        coordinates: { lat: 32.884210, lng: 131.054450 },
+        mapUrl: "https://www.google.com/maps/search/Kusasenri+Coffee+Roastery"
+      },
+      {
         name: "New Kusasenri (ニュー草千里)",
         type: "景觀餐廳",
-        tags: ["絕景", "赤牛丼"],
-        desc: "擁有整片落地窗，可以直接眺望草千里與阿蘇中岳噴煙的絕景餐廳。推薦赤牛丼與阿蘇牛奶冰淇淋。",
+        tags: ["絕景第一排", "赤牛丼"],
+        desc: "草千里絕景第一排，整片落地窗眺望阿蘇中岳噴煙，推薦赤牛丼。",
         locationKey: "new_kusasenri",
         googleRating: 4.0,
         michelin: false,
-        coordinates: { lat: 32.8850, lng: 131.0530 }
+        coordinates: { lat: 32.884100, lng: 131.054800 },
+        mapUrl: "https://www.google.com/maps/search/New+Kusasenri"
+      },
+      {
+        name: "高森田樂保存會",
+        type: "百年鄉土料理",
+        tags: ["130年茅草屋", "圍爐裏炭火", "強烈推薦"],
+        desc: "【強烈推薦】130年歷史茅草屋老店，圍著地爐享用烤味噌豆腐、山女魚與阿蘇赤牛，極致文化體驗。",
+        locationKey: "takamori_dengaku",
+        googleRating: 4.6,
+        michelin: false,
+        coordinates: { lat: 32.825220, lng: 131.144180 },
+        mapUrl: "https://www.google.com/maps/search/Takamori+Dengaku+Hozonkai"
+      },
+      {
+        name: "阿蘇料理 Hikoichi",
+        type: "阿蘇赤牛燒肉",
+        tags: ["自家農場直送", "馬刺身", "在地人推薦"],
+        desc: "自家農場生產的阿蘇赤牛燒肉與定食，還有熊本名物馬刺身，在地人極推的高CP值名店。",
+        locationKey: "hikoichi",
+        googleRating: 4.5,
+        michelin: false,
+        coordinates: { lat: 32.937660, lng: 131.119750 },
+        mapUrl: "https://www.google.com/maps/search/Aso+Ryori+Hikoichi"
+      },
+      {
+        name: "吉村 生Ikinari糰子",
+        type: "熊本甜點",
+        tags: ["熊本名物", "地瓜紅豆", "白川水源入口"],
+        desc: "白川水源入口處的小店，販售熊本名物「Ikinari Dango」，熱騰騰的地瓜紅豆糰子非常好吃。",
+        locationKey: "yoshimura_dango",
+        googleRating: 4.5,
+        michelin: false,
+        coordinates: { lat: 32.822600, lng: 131.082500 },
+        mapUrl: "https://www.google.com/maps/search/Shirakawa+Suigen+Yoshimura"
       },
       {
         name: "水源茶屋 (Suigen Chaya)",
-        type: "豆腐/甘味",
+        type: "名水料理",
         tags: ["白川水源內", "名水豆腐"],
-        desc: "使用白川水源的名水製作的料理，豆腐料理清甜，也有好吃的糰子和咖啡。",
+        desc: "使用白川水源的名水製作料理，豆腐清甜，也有糰子和咖啡。",
         locationKey: "suigen_chaya",
         googleRating: 4.2,
         michelin: false,
-        coordinates: { lat: 32.8340, lng: 131.0965 }
-      },
-      {
-        name: "高森田楽保存会",
-        type: "田樂燒",
-        tags: ["鄉土料理", "圍爐裹"],
-        desc: "距離上色見神社不遠，體驗在古老圍爐裹旁烤山女魚、豆腐和野菜的傳統美味。",
-        locationKey: "takamori_dengaku",
-        googleRating: 4.4,
-        michelin: false,
-        coordinates: { lat: 32.8250, lng: 131.1350 }
+        coordinates: { lat: 32.822950, lng: 131.082720 }
       }
     ],
     shopping: [
       {
-        name: "白川水源 賣店",
-        type: "裝水瓶/土產",
-        tags: ["名水", "空瓶"],
-        desc: "記得購買空寶特瓶裝取日本第一的白川水源名水帶回飯店喝。",
-        coordinates: { lat: 32.8340, lng: 131.0965 }
+        name: "白川水源",
+        type: "名水體驗",
+        tags: ["名水百選", "可裝水"],
+        desc: "每分鐘湧出60噸泉水，可自由裝取（建議帶空寶特瓶），水質甘甜可生飲。",
+        coordinates: { lat: 32.822950, lng: 131.082720 },
+        mapUrl: "https://www.google.com/maps/search/Shirakawa+Source"
+      },
+      {
+        name: "南阿蘇鐵道 高森站",
+        type: "海賊王朝聖",
+        tags: ["法蘭基銅像", "昭和復古"],
+        desc: "海賊王熊本復興計畫的一環，與法蘭基銅像合照，車站本身也很有昭和風情。",
+        coordinates: { lat: 32.819750, lng: 131.122680 },
+        mapUrl: "https://www.google.com/maps/search/Takamori+Station+Kumamoto"
       }
     ]
   },

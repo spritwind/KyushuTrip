@@ -42,6 +42,58 @@ export const LOCATIONS = {
   kokonoe_ski: { lat: 33.1342, lng: 131.2361, name: "九重森林公園滑雪場" },
   sujiyu_onsen: { lat: 33.1539, lng: 131.2258, name: "筋湯溫泉 旅館 Nanakamado" },
 
+  // Day 5 - 阿蘇神話與秘境探險
+  kusasenri: {
+    lat: 32.885150, lng: 131.050600,
+    name: "草千里之濱",
+    mapUrl: "https://www.google.com/maps/search/Kusasenri+Parking"
+  },
+  kusasenri_coffee: {
+    lat: 32.884210, lng: 131.054450,
+    name: "草千里咖啡焙煎所",
+    mapUrl: "https://www.google.com/maps/search/Kusasenri+Coffee+Roastery"
+  },
+  new_kusasenri: {
+    lat: 32.884100, lng: 131.054800,
+    name: "New Kusasenri 景觀餐廳",
+    mapUrl: "https://www.google.com/maps/search/New+Kusasenri"
+  },
+  takamori_dengaku: {
+    lat: 32.825220, lng: 131.144180,
+    name: "高森田樂保存會",
+    mapUrl: "https://www.google.com/maps/search/Takamori+Dengaku+Hozonkai"
+  },
+  takamori_station: {
+    lat: 32.819750, lng: 131.122680,
+    name: "南阿蘇鐵道 高森站 (法蘭基)",
+    mapUrl: "https://www.google.com/maps/search/Takamori+Station+Kumamoto"
+  },
+  kamishikimi: {
+    lat: 32.840780, lng: 131.164800,
+    name: "上色見熊野座神社",
+    mapUrl: "https://www.google.com/maps/search/Kamishikimi+Kumanoza+Shrine+Parking"
+  },
+  shirakawa_source: {
+    lat: 32.822950, lng: 131.082720,
+    name: "白川水源",
+    mapUrl: "https://www.google.com/maps/search/Shirakawa+Source"
+  },
+  yoshimura_dango: {
+    lat: 32.822600, lng: 131.082500,
+    name: "吉村 生Ikinari糰子",
+    mapUrl: "https://www.google.com/maps/search/Shirakawa+Suigen+Yoshimura"
+  },
+  hikoichi: {
+    lat: 32.937660, lng: 131.119750,
+    name: "阿蘇料理 Hikoichi",
+    mapUrl: "https://www.google.com/maps/search/Aso+Ryori+Hikoichi"
+  },
+  grandvrio_aso: {
+    lat: 32.898650, lng: 130.985680,
+    name: "Grandvrio Hotel Aso",
+    mapUrl: "https://www.google.com/maps/search/Grandvrio+Hotel+Aso"
+  },
+
   // Day 6 - 返回福岡與天神之夜
   daikanbo: {
     lat: 32.996728, lng: 131.066974,
