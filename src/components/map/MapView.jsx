@@ -9,8 +9,8 @@ import { getDistanceFromUser } from '@utils/helpers';
 
 export default function MapView({ dayData, userPosition }) {
   const [selectedMarker, setSelectedMarker] = useState(null);
-  // Google Maps API Key (寫死在程式碼中)
-  const apiKey = 'AIzaSyDcs-sKtNk8tnuwofLKmf6qBCEsABeGoR8';
+  // Google Maps API Key (從環境變數讀取)
+  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
   // 計算選中標記的距離
   const selectedDistance = selectedMarker && userPosition && selectedMarker.coordinates

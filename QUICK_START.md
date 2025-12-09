@@ -43,7 +43,7 @@ Vercel 會自動偵測到 Vite，無需手動設定！
 
 **Environment Variables:**
 ```
-VITE_GOOGLE_MAPS_API_KEY = AIzaSyDcs-sKtNk8tnuwofLKmf6qBCEsABeGoR8
+VITE_GOOGLE_MAPS_API_KEY = (填入你的 Google Maps API 金鑰)
 ```
 
 （OpenWeatherMap API Key 可以之後再加）

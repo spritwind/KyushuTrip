@@ -1,7 +1,26 @@
 import * as Icons from 'lucide-react';
+import AnimatedWeatherIcon from '@components/weather/AnimatedWeatherIcon';
+
+// 每日主要景點地標配置
+const DAY_LANDMARKS = {
+  1: { icon: 'Plane', name: '福岡', subtext: '博多' },
+  2: { icon: 'Flame', name: '別府', subtext: '地獄巡禮' },
+  3: { icon: 'Snowflake', name: '九重', subtext: '滑雪場' }
+};
 
 export default function Header({ dayData, weather, navigationMode, setNavigationMode }) {
-  const WeatherIcon = weather?.iconName ? Icons[weather.iconName] : Icons.CloudSun;
+  const landmark = DAY_LANDMARKS[dayData.id] || { icon: 'MapPin', name: dayData.location, subtext: '' };
+  const LandmarkIcon = Icons[landmark.icon] || Icons.MapPin;
+
+  // 從溫度字串提取數字（如 "4°C - 9°C" -> "4~9"）
+  const formatTemp = (temp) => {
+    if (!temp) return '--';
+    const matches = temp.match(/-?\d+/g);
+    if (matches && matches.length >= 2) {
+      return `${matches[0]}~${matches[1]}`;
+    }
+    return temp.replace('°C', '').replace(' ', '');
+  };
 
   return (
     <div className="relative pt-10 pb-8 px-6 text-gray-800 overflow-visible z-10">
@@ -29,12 +48,41 @@ export default function Header({ dayData, weather, navigationMode, setNavigation
           </div>
         </div>
 
-        {/* Weather Card */}
+        {/* Enhanced Weather & Landmark Card */}
         {weather && (
-          <div className="glass-card rounded-3xl p-3 flex flex-col items-center justify-center min-w-[70px] aspect-[3/4] animate-in zoom-in">
-            <WeatherIcon size={24} className="text-accent-500 mb-1" />
-            <span className="text-xl font-bold text-gray-700">{weather.temp}°</span>
-            <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wide mt-0.5">{weather.condition}</span>
+          <div className="glass-card rounded-3xl p-3 flex flex-col items-center justify-center min-w-[85px] animate-in zoom-in relative overflow-hidden">
+            {/* 背景裝飾 */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent pointer-events-none" />
+
+            {/* 動態天氣圖示 */}
+            <div className="relative mb-1">
+              <AnimatedWeatherIcon
+                condition={weather.condition}
+                size={28}
+              />
+            </div>
+
+            {/* 溫度 */}
+            <span className="text-lg font-bold text-gray-700 leading-tight">
+              {formatTemp(weather.temp)}°
+            </span>
+
+            {/* 天氣狀況 */}
+            <span className="text-[9px] font-bold text-gray-400 tracking-wide mb-2">
+              {weather.condition}
+            </span>
+
+            {/* 分隔線 */}
+            <div className="w-10 h-px bg-gray-200 mb-2" />
+
+            {/* 景點地標 */}
+            <div className="flex flex-col items-center">
+              <div className="w-7 h-7 rounded-full bg-primary-100 flex items-center justify-center mb-1">
+                <LandmarkIcon size={14} className="text-primary-500" />
+              </div>
+              <span className="text-[10px] font-bold text-gray-600">{landmark.name}</span>
+              <span className="text-[8px] text-gray-400">{landmark.subtext}</span>
+            </div>
           </div>
         )}
       </div>

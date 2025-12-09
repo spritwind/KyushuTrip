@@ -15,7 +15,7 @@
    \`\`\`
 
 2. **申請 API 金鑰**
-   - ✅ Google Maps API: AIzaSyDcs-sKtNk8tnuwofLKmf6qBCEsABeGoR8 (已設定)
+   - ⏳ Google Maps API: 需要在 .env.local 或 Vercel 設定
    - ⏳ OpenWeatherMap API: 需要申請
 
 ### Vercel 部署
@@ -37,8 +37,8 @@
    在 Vercel 專案設定中添加：
 
    \`\`\`
-   VITE_GOOGLE_MAPS_API_KEY = AIzaSyDcs-sKtNk8tnuwofLKmf6qBCEsABeGoR8
-   VITE_OPENWEATHER_API_KEY = (填入你的金鑰)
+   VITE_GOOGLE_MAPS_API_KEY = (填入你的 Google Maps API 金鑰)
+   VITE_OPENWEATHER_API_KEY = (填入你的 OpenWeatherMap 金鑰)
    VITE_DEFAULT_MAP_ZOOM = 11
    VITE_MAP_LANGUAGE = ja
    \`\`\`
