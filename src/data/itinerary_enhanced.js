@@ -606,6 +606,16 @@ export const ITINERARY_DATA_ENHANCED = [
         coordinates: { lat: 32.9475, lng: 131.1160 }
       },
       {
+        name: "organic cafe olmo coppia",
+        type: "有機咖啡廳",
+        tags: ["Google 4.6⭐", "古民家", "健康蔬食"],
+        desc: "位於阿蘇擁有160年歷史的古民家咖啡廳。提供在地有機蔬菜製作的餐點，氛圍寧靜療癒，是放鬆身心的絕佳選擇。",
+        locationKey: "olmo_coppia",
+        googleRating: 4.6,
+        michelin: false,
+        coordinates: { lat: 32.9407, lng: 131.0896 }
+      },
+      {
         name: "Aso Torimiya (阿蘇とり宮)",
         type: "馬肉可樂餅",
         tags: ["邊走邊吃", "在地名物"],
@@ -623,6 +633,16 @@ export const ITINERARY_DATA_ENHANCED = [
         tags: ["水基巡禮", "特色小店"],
         desc: "湧泉處處的古老街道，可以一邊喝著甘甜的泉水，一邊逛逛懷舊的雜貨店。",
         coordinates: { lat: 32.9475, lng: 131.1160 }
+      },
+      {
+        name: "丹波屋",
+        type: "雜貨/甜點",
+        tags: ["老舖", "阿蘇水基", "螢丸汽水"],
+        desc: "阿蘇神社門前町的老字號文具雜貨店。必買使用阿蘇湧泉製作的「螢丸汽水」，清涼消暑。",
+        locationKey: "tanbaya",
+        googleRating: 4.5,
+        michelin: false,
+        coordinates: { lat: 32.9480, lng: 131.1165 }
       }
     ]
   },
@@ -789,6 +809,16 @@ export const ITINERARY_DATA_ENHANCED = [
         desc: "每分鐘湧出60噸泉水，可自由裝取（建議帶空寶特瓶），水質甘甜可生飲。",
         coordinates: { lat: 32.822950, lng: 131.082720 },
         mapUrl: "https://www.google.com/maps/search/Shirakawa+Source"
+      },
+      {
+        name: "Minamiaso Holmon (南阿蘇ホルモン)",
+        type: "燒肉/居酒屋",
+        tags: ["Google 4.7⭐", "在地隱藏", "赤牛"],
+        desc: "南阿蘇評價極高的燒肉店。提供新鮮的阿蘇赤牛與內臟燒肉，價格實惠，是當地人的私房愛店。",
+        locationKey: "minamiaso_holmon",
+        googleRating: 4.7,
+        michelin: false,
+        coordinates: { lat: 32.8350, lng: 131.0700 } // Approx based on region
       },
       {
         name: "南阿蘇鐵道 高森站",
@@ -1018,6 +1048,26 @@ export const ITINERARY_DATA_ENHANCED = [
         desc: "階梯狀綠建築，外觀種滿樹木如都市中的山，可沿步道走上去眺望天神。",
         coordinates: { lat: 33.591900, lng: 130.402200 },
         mapUrl: "https://www.google.com/maps/search/ACROS+Fukuoka"
+      },
+      {
+        name: "明月堂 (博多通りもん)",
+        type: "伴手禮",
+        tags: ["博多名物", "蒙德金賞", "必買"],
+        desc: "連續23年獲得蒙德金牌獎的福岡代表性名菓。柔軟外皮包覆著融化口感的白豆沙餡，奶香濃郁。",
+        locationKey: "meigetsudo",
+        googleRating: 4.5,
+        michelin: false,
+        coordinates: { lat: 33.5898, lng: 130.4207 }
+      },
+      {
+        name: "如水庵 (筑紫もち)",
+        type: "伴手禮",
+        tags: ["百年老舖", "筑紫麻糬", "黃豆粉"],
+        desc: "福岡知名的傳統和菓子店。招牌「筑紫麻糬」撒上滿滿黃豆粉，淋上黑糖蜜，風味高雅。",
+        locationKey: "josuian",
+        googleRating: 4.4,
+        michelin: false,
+        coordinates: { lat: 33.5900, lng: 130.4210 }
       }
     ]
   },
