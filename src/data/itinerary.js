@@ -3,8 +3,8 @@
 export const ITINERARY_DATA = [
   {
     id: 1,
-    date: "1/21 (二)",
-    isoDate: "2025-01-21",
+    date: "1/21 (三)",
+    isoDate: "2026-01-21",
     title: "福岡抵達與市區探索",
     stay: "博多站天座飯店 (The Base Hakata)",
     location: "Fukuoka",
@@ -79,8 +79,8 @@ export const ITINERARY_DATA = [
   },
   {
     id: 2,
-    date: "1/22 (三)",
-    isoDate: "2025-01-22",
+    date: "1/22 (四)",
+    isoDate: "2026-01-22",
     title: "別府地獄巡禮與溫泉",
     stay: "別府八湯 御宿野乃",
     location: "Beppu",
@@ -163,8 +163,8 @@ export const ITINERARY_DATA = [
   },
   {
     id: 3,
-    date: "1/23 (四)",
-    isoDate: "2025-01-23",
+    date: "1/23 (五)",
+    isoDate: "2026-01-23",
     title: "由布院散策與九重滑雪",
     stay: "筋湯溫泉 旅館 Nanakamado",
     location: "Yufuin",
