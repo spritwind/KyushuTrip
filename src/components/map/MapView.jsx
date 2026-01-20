@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { APIProvider, Map } from '@vis.gl/react-google-maps';
-import { MapPinned } from 'lucide-react';
+import { MapPinned, MapIcon, Navigation, AlertCircle } from 'lucide-react';
 import MapMarker from './MapMarker';
 import MapRoute from './MapRoute';
 import MapLegend from './MapLegend';
@@ -9,6 +9,7 @@ import { getDistanceFromUser } from '@utils/helpers';
 
 export default function MapView({ dayData, userPosition }) {
   const [selectedMarker, setSelectedMarker] = useState(null);
+  const [mapError, setMapError] = useState(false);
   // Google Maps API Key (從環境變數讀取)
   const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
@@ -17,8 +18,58 @@ export default function MapView({ dayData, userPosition }) {
     ? getDistanceFromUser(userPosition, selectedMarker.coordinates)
     : null;
 
+  // 如果沒有 API Key 或地圖載入錯誤，顯示備用 UI
+  if (!apiKey || mapError) {
+    return (
+      <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 bg-gradient-to-br from-blue-50 to-cyan-50">
+        <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/60 max-w-sm text-center">
+            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <MapIcon size={32} className="text-blue-500" />
+            </div>
+            <h3 className="text-lg font-bold text-gray-800 mb-2">地圖功能暫時無法使用</h3>
+            <p className="text-sm text-gray-600 mb-4">
+              請使用下方景點的「Go!」按鈕開啟 Google Maps 導航
+            </p>
+            <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
+              <AlertCircle size={14} />
+              <span>API Key 尚未設定</span>
+            </div>
+          </div>
+
+          {/* 顯示今日景點列表 */}
+          <div className="mt-4 w-full max-w-sm">
+            <p className="text-xs text-gray-500 text-center mb-2">今日景點快速導航</p>
+            <div className="space-y-2 max-h-48 overflow-y-auto">
+              {dayData.activities
+                .filter((a) => a.locationKey && a.coordinates)
+                .slice(0, 5)
+                .map((activity, idx) => (
+                  <a
+                    key={idx}
+                    href={`https://www.google.com/maps/search/?api=1&query=${activity.coordinates.lat},${activity.coordinates.lng}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 bg-white/70 backdrop-blur-sm rounded-xl p-3 hover:bg-white/90 transition-colors border border-white/60"
+                  >
+                    <div className="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Navigation size={16} className="text-primary-600" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium text-gray-800 truncate">{activity.title}</p>
+                      <p className="text-xs text-gray-500">{activity.time}</p>
+                    </div>
+                  </a>
+                ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <APIProvider apiKey={apiKey}>
+    <APIProvider apiKey={apiKey} onError={() => setMapError(true)}>
       <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-lg border border-gray-200">
         <Map
           defaultCenter={dayData.mapCenter}
