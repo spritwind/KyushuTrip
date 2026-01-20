@@ -147,6 +147,36 @@ export const ITINERARY_DATA_ENHANCED = [
         googleRating: 4.6,
         michelin: true,
         coordinates: { lat: 33.5850, lng: 130.4050 }
+      },
+      {
+        name: "牛かつもと村 (Gyukatsu Motomura)",
+        type: "炸牛排",
+        tags: ["Google 4.8⭐", "石板現煎", "必排隊"],
+        desc: "福岡超人氣炸牛排，使用優質牛肉裹上極細麵包粉酥炸。最大特色是可自己在石板上調整熟度，入口即化的口感令人驚艷。",
+        locationKey: "motomura",
+        googleRating: 4.8,
+        michelin: false,
+        coordinates: { lat: 33.5871, lng: 130.3965 }
+      },
+      {
+        name: "博多炉端 魚男 (Fishman)",
+        type: "居酒屋",
+        tags: ["海鮮階梯盛", "Google 4.6⭐", "IG熱門"],
+        desc: "以浮誇的「海鮮階梯盛」聞名，氣氛熱鬧時尚。每日從魚市場直送新鮮漁獲，料理創意十足，是福岡夜晚的最佳聚餐點。",
+        locationKey: "fishman",
+        googleRating: 4.6,
+        michelin: false,
+        coordinates: { lat: 33.5830, lng: 130.4005 }
+      },
+      {
+        name: "鈴懸 (Suzukake) 本店",
+        type: "和菓子/甜點",
+        tags: ["Google 4.8⭐", "百年老舖", "草莓大福"],
+        desc: "創業90餘年的福岡頂級和菓子店。必吃「鈴乃最中」與季節限定的草莓大福，店內茶房氛圍極佳。",
+        locationKey: "suzukake_main",
+        googleRating: 4.8,
+        michelin: false,
+        coordinates: { lat: 33.5950, lng: 130.4030 }
       }
     ],
     shopping: [
@@ -196,7 +226,16 @@ export const ITINERARY_DATA_ENHANCED = [
         coordinates: { lat: 33.4350, lng: 130.5380 }
       },
       {
-        time: "11:30",
+        time: "11:15",
+        type: "highlight",
+        title: "別府鶴見岳纜車 (Beppu Ropeway)",
+        detail: "米其林搜集景點 | Google評分: 4.7⭐ | 10分鐘登頂俯瞰別府灣",
+        locationKey: "ropeway",
+        googleRating: 4.7,
+        coordinates: { lat: 33.2815, lng: 131.4411 }
+      },
+      {
+        time: "12:30",
         type: "highlight",
         title: "別府地獄巡禮",
         detail: "海地獄、鬼石坊主地獄 | Google評分: 4.3⭐",
@@ -205,7 +244,7 @@ export const ITINERARY_DATA_ENHANCED = [
         coordinates: { lat: 33.3150, lng: 131.4680 }
       },
       {
-        time: "13:00",
+        time: "14:00",
         type: "food",
         title: "午餐：地獄蒸工房 鐵輪",
         detail: "體驗自己動手蒸食 | Google評分: 4.4⭐",
@@ -214,7 +253,7 @@ export const ITINERARY_DATA_ENHANCED = [
         coordinates: { lat: 33.3155, lng: 131.4688 }
       },
       {
-        time: "15:00",
+        time: "15:30",
         type: "stay",
         title: "御宿野乃 Check-in",
         detail: "別府站前，全館榻榻米及露天溫泉",
@@ -223,7 +262,7 @@ export const ITINERARY_DATA_ENHANCED = [
         coordinates: { lat: 33.2850, lng: 131.4920 }
       },
       {
-        time: "16:00",
+        time: "16:15",
         type: "sight",
         title: "巨大天狗像 & 商店街",
         detail: "彌生天狗通散策 (走路4分) | 必拍地標",
@@ -316,6 +355,16 @@ export const ITINERARY_DATA_ENHANCED = [
         googleRating: 4.5,
         michelin: true,
         coordinates: { lat: 33.3175, lng: 131.4690 }
+      },
+      {
+        name: "大和田寿し (Owadazushi)",
+        type: "壽司",
+        tags: ["在地名店", "食材新鮮", "CP值高"],
+        desc: "別府在地人極力推薦的壽司老店。食材新鮮厚實，份量十足，且價格非常公道。記得品嚐他們的大多福壽司。",
+        locationKey: "owada",
+        googleRating: 4.5,
+        michelin: false,
+        coordinates: { lat: 33.2805, lng: 131.5020 }
       }
     ],
     shopping: [
@@ -441,6 +490,26 @@ export const ITINERARY_DATA_ENHANCED = [
         googleRating: 4.1,
         michelin: false,
         coordinates: { lat: 33.2658, lng: 131.3695 }
+      },
+      {
+        name: "肉彩工房 平蔵 (Yakiniku Heizo)",
+        type: "豐後牛燒肉",
+        tags: ["Google 4.8⭐", "隱藏美食", "高CP值"],
+        desc: "由布院車站附近的隱藏版燒肉店。提供高品質的豐後牛，肉質鮮嫩多汁，價格卻意外親民，是肉食愛好者的天堂。",
+        locationKey: "heizo",
+        googleRating: 4.8,
+        michelin: false,
+        coordinates: { lat: 33.2605, lng: 131.3565 }
+      },
+      {
+        name: "Milch (ミルヒ) 由布院",
+        type: "半熟起司蛋糕",
+        tags: ["必吃甜點", "金賞受賞", "冷熱皆宜"],
+        desc: "由布院不可錯過的甜點名店。招牌「Kase Kuchen」半熟起司蛋糕，可選擇熱吃(爆漿)或冷吃(濃郁)，年銷百萬個。",
+        locationKey: "milch",
+        googleRating: 4.5,
+        michelin: false,
+        coordinates: { lat: 33.2655, lng: 131.3660 }
       }
     ],
     shopping: [
@@ -450,6 +519,13 @@ export const ITINERARY_DATA_ENHANCED = [
         tags: ["童話名店", "必逛"],
         desc: "仿照英國科茨沃爾德地區打造的童話小鎮，有貓頭鷹之森、愛麗絲專賣店。",
         coordinates: { lat: 33.2662, lng: 131.3705 }
+      },
+      {
+        name: "Miffy Kitchen (Miffy Mori no Bakery)",
+        type: "造型麵包",
+        tags: ["Miffy主題", "超可愛", "打卡"],
+        desc: "以Miffy為主題的麵包坊與禮品店，販售超可愛的Miffy造型紅豆麵包與周邊商品。",
+        coordinates: { lat: 33.2670, lng: 131.3685 }
       }
     ]
   },
