@@ -12,6 +12,19 @@ export const LOCATIONS = {
   ganso_mentaiju: { lat: 33.5915, lng: 130.4094, name: "元祖博多明太重" },
   seimon_barai: { lat: 33.5898, lng: 130.4062, name: "Seimon Barai" },
 
+  // Day 1 - 福岡老舖名店 (美食遺產走廊)
+  suigetsu: { lat: 33.5755, lng: 130.4020, name: "水月 (水炊元祖)" },
+  shin_miura: { lat: 33.5897, lng: 130.4206, name: "新三浦 (白濁水炊)" },
+  ganso_nagahamaya: { lat: 33.6020, lng: 130.3880, name: "元祖長濱屋 (替玉發源地)" },
+  akanoren: { lat: 33.5900, lng: 130.3990, name: "元祖赤暖簾 節ちゃんラーメン" },
+  brasileiro: { lat: 33.5915, lng: 130.4055, name: "Brasileiro (巴西咖啡館)" },
+  sushi_sakai: { lat: 33.5850, lng: 130.4050, name: "Sushi Sakai (寿司 さかい)" },
+
+  // Day 2 - 高速公路休息站 (博多至別府)
+  kiyama_pa: { lat: 33.4350, lng: 130.5380, name: "基山PA (雞肉烏龍麵)" },
+  yamada_sa_gourmet: { lat: 33.3853, lng: 130.7646, name: "山田SA (朝倉柿子)" },
+  beppuwan_sa: { lat: 33.3200, lng: 131.5100, name: "別府灣SA (Murata Time)" },
+
   // Day 2 - 別府
   budget_hakata: { lat: 33.5880, lng: 130.4250, name: "Budget 租車 博多筑紫口店" },
   beppu_city: { lat: 33.2844, lng: 131.4909, name: "別府市" },
@@ -25,6 +38,12 @@ export const LOCATIONS = {
   toyotsune: { lat: 33.2838, lng: 131.4905, name: "Toyotsune (天丼名店)" },
   kotsukotsu_an: { lat: 33.2856, lng: 131.4898, name: "Kotsukotsu An" },
   okamotoya: { lat: 33.3095, lng: 131.4660, name: "岡本屋賣店" },
+
+  // Day 2 - 別府老舖名店 (美食遺產走廊)
+  toyoken: { lat: 33.3035, lng: 131.4920, name: "東洋軒 (とり天發源店)" },
+  kogetsu_reimen: { lat: 33.2800, lng: 131.4920, name: "胡月 (別府冷麵)" },
+  rokusei: { lat: 33.2815, lng: 131.4925, name: "六盛 (別府冷麵)" },
+  hyotan_onsen: { lat: 33.3175, lng: 131.4690, name: "Hyotan Onsen - Yurari" },
 
   // Day 2 - 別府購物
   chinoike_shop: { lat: 33.2947, lng: 131.4783, name: "血池地獄 賣店" },

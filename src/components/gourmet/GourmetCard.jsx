@@ -1,4 +1,4 @@
-import { Utensils, Navigation, Star, Award, MapPinned } from 'lucide-react';
+import { Utensils, Navigation, Star, Award, MapPinned, Landmark, Car } from 'lucide-react';
 import { LOCATIONS } from '@data/locations';
 import { getGoogleMapsDirectionsUrl, getDistanceFromUser } from '@utils/helpers';
 
@@ -7,6 +7,12 @@ export default function GourmetCard({ place, userPosition, navigationMode }) {
   const distance = userPosition && place.coordinates
     ? getDistanceFromUser(userPosition, place.coordinates)
     : null;
+
+  // 計算經營年數
+  const yearsInBusiness = place.foundedYear
+    ? new Date().getFullYear() - place.foundedYear
+    : null;
+
   const handleNavigate = () => {
     if (place.locationKey) {
       const location = LOCATIONS[place.locationKey];
@@ -22,22 +28,53 @@ export default function GourmetCard({ place, userPosition, navigationMode }) {
     }
   };
 
+  // 根據是否為老舖或高速公路休息站決定背景色
+  const headerGradient = place.shinise
+    ? 'from-amber-100 to-yellow-50'
+    : place.isSAPA
+    ? 'from-blue-50 to-cyan-50'
+    : 'from-amber-50 to-orange-100';
+
+  const iconBgColor = place.shinise
+    ? 'bg-amber-50'
+    : place.isSAPA
+    ? 'bg-blue-50'
+    : 'bg-white';
+
   return (
-    <div className="bg-white/90 backdrop-blur-sm rounded-3xl overflow-hidden shadow-card border border-white/60 mb-5 transition-all duration-300 hover:shadow-soft hover:-translate-y-1 group">
+    <div className={`bg-white/90 backdrop-blur-sm rounded-3xl overflow-hidden shadow-card border mb-5 transition-all duration-300 hover:shadow-soft hover:-translate-y-1 group ${place.shinise ? 'border-amber-200' : place.isSAPA ? 'border-blue-200' : 'border-white/60'}`}>
       {/* 頂部圖片區域（漸層背景） */}
-      <div className="h-28 bg-gradient-to-br from-amber-50 to-orange-100 relative">
+      <div className={`h-28 bg-gradient-to-br ${headerGradient} relative`}>
+        {/* 老舖徽章 */}
+        {place.shinise && yearsInBusiness && (
+          <div className="absolute top-3 left-3 bg-gradient-to-r from-amber-500 to-yellow-500 text-white px-3 py-1.5 rounded-xl shadow-md flex items-center gap-1.5">
+            <Landmark size={14} />
+            <span className="text-xs font-bold">{yearsInBusiness}年老舖</span>
+          </div>
+        )}
+        {/* 高速公路休息站徽章 */}
+        {place.isSAPA && (
+          <div className="absolute top-3 left-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-3 py-1.5 rounded-xl shadow-md flex items-center gap-1.5">
+            <Car size={14} />
+            <span className="text-xs font-bold">高速公路美食</span>
+          </div>
+        )}
         <div className="absolute top-3 right-3 flex gap-1 flex-wrap justify-end pl-10">
           {place.tags.map((tag, i) => (
             <span
               key={i}
-              className="text-[10px] font-bold bg-white/80 backdrop-blur-md text-orange-800 px-2.5 py-1 rounded-pill shadow-sm"
+              className={`text-[10px] font-bold bg-white/80 backdrop-blur-md px-2.5 py-1 rounded-pill shadow-sm ${place.shinise ? 'text-amber-800' : place.isSAPA ? 'text-blue-800' : 'text-orange-800'}`}
             >
               {tag}
             </span>
           ))}
         </div>
-        <div className="absolute -bottom-6 left-5 bg-white p-3 rounded-2xl shadow-cute skew-y-0 transition-transform group-hover:scale-110 duration-300">
-          <Utensils size={24} className="text-amber-500" />
+        <div className={`absolute -bottom-6 left-5 ${iconBgColor} p-3 rounded-2xl shadow-cute skew-y-0 transition-transform group-hover:scale-110 duration-300`}>
+          {place.isSAPA ? (
+            <Car size={24} className="text-blue-500" />
+          ) : (
+            <Utensils size={24} className={place.shinise ? 'text-amber-600' : 'text-amber-500'} />
+          )}
         </div>
       </div>
 
