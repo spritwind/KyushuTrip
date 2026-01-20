@@ -4,8 +4,8 @@
 export const ITINERARY_DATA_ENHANCED = [
   {
     id: 1,
-    date: "1/21 (二)",
-    isoDate: "2025-01-21",
+    date: "1/21 (三)",
+    isoDate: "2026-01-21",
     title: "福岡抵達與市區探索",
     stay: "博多站天座飯店 (The Base Hakata)",
     location: "Fukuoka",
@@ -191,8 +191,8 @@ export const ITINERARY_DATA_ENHANCED = [
   },
   {
     id: 2,
-    date: "1/22 (三)",
-    isoDate: "2025-01-22",
+    date: "1/22 (四)",
+    isoDate: "2026-01-22",
     title: "別府八湯與地獄蒸體驗",
     stay: "別府八湯御宿野乃 (Onyado Nono Beppu)",
     location: "Beppu",
@@ -386,8 +386,8 @@ export const ITINERARY_DATA_ENHANCED = [
   },
   {
     id: 3,
-    date: "1/23 (四)",
-    isoDate: "2025-01-23",
+    date: "1/23 (五)",
+    isoDate: "2026-01-23",
     title: "夢幻金鱗湖與九重滑雪",
     stay: "旅館 Nanakamado (筋湯溫泉)",
     location: "Yufuin / Kokonoe",
@@ -531,8 +531,8 @@ export const ITINERARY_DATA_ENHANCED = [
   },
   {
     id: 4,
-    date: "1/24 (五)",
-    isoDate: "2025-01-24",
+    date: "1/24 (六)",
+    isoDate: "2026-01-24",
     title: "阿蘇壯麗絕景與神社巡禮",
     stay: "Grandvrio Hotel Aso (阿蘇格蘭德里奧)",
     location: "Aso",
@@ -648,8 +648,8 @@ export const ITINERARY_DATA_ENHANCED = [
   },
   {
     id: 5,
-    date: "1/25 (六)",
-    isoDate: "2025-01-25",
+    date: "1/25 (日)",
+    isoDate: "2026-01-25",
     title: "阿蘇神話與秘境探險",
     stay: "Grandvrio Hotel Aso (連泊)",
     location: "Aso",
@@ -832,8 +832,8 @@ export const ITINERARY_DATA_ENHANCED = [
   },
   {
     id: 6,
-    date: "1/26 (日)",
-    isoDate: "2025-01-26",
+    date: "1/26 (一)",
+    isoDate: "2026-01-26",
     title: "返回福岡與天神之夜",
     stay: "MYSTAYS 福岡天神 (MYSTAYS Fukuoka Tenjin)",
     location: "Fukuoka",
@@ -1073,8 +1073,8 @@ export const ITINERARY_DATA_ENHANCED = [
   },
   {
     id: 7,
-    date: "1/27 (一)",
-    isoDate: "2025-01-27",
+    date: "1/27 (二)",
+    isoDate: "2026-01-27",
     title: "鋼彈與博多傳統文化",
     stay: "MYSTAYS 福岡天神 (連泊)",
     location: "Fukuoka",
@@ -1234,8 +1234,8 @@ export const ITINERARY_DATA_ENHANCED = [
   },
   {
     id: 8,
-    date: "1/28 (二)",
-    isoDate: "2025-01-28",
+    date: "1/28 (三)",
+    isoDate: "2026-01-28",
     title: "帶著滿滿回憶返家",
     stay: "(返家)",
     location: "Fukuoka",

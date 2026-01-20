@@ -48,3 +48,11 @@ export const CITY_IDS = {
   Beppu: 1926099,
   Yufuin: 1848445
 };
+
+// 美食子類型顏色
+export const GOURMET_TYPE_COLORS = {
+  default: '#ef4444',   // 紅色
+  shinise: '#92400e',   // 深棕色（老舖）
+  michelin: '#dc2626',  // 深紅色（米其林）
+  sapa: '#2563eb'       // 藍色（高速公路休息站）
+};
