@@ -1,5 +1,6 @@
 import { MapPin } from 'lucide-react';
 import TimelineItem from './TimelineItem';
+import RouteOptimizer from './RouteOptimizer';
 
 export default function TimelineView({ dayData, userPosition, navigationMode }) {
   return (
@@ -15,6 +16,9 @@ export default function TimelineView({ dayData, userPosition, navigationMode }) 
           </span>
         </div>
       )}
+
+      {/* 路線優化建議 */}
+      <RouteOptimizer dayData={dayData} />
 
       {/* 行程時間軸 */}
       <div className="relative pl-4 space-y-6">
