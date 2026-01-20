@@ -8,10 +8,11 @@
   body {
     @apply bg-orange-50/30 text-gray-700 antialiased;
     font-family: 'Quicksand', 'M PLUS Rounded 1c', sans-serif;
-    background-image: 
+    background-image:
       radial-gradient(circle at 10% 20%, rgba(255, 194, 218, 0.2) 0%, transparent 20%),
       radial-gradient(circle at 90% 80%, rgba(255, 237, 213, 0.3) 0%, transparent 25%);
     background-attachment: fixed;
+    transition: background-image 0.7s ease-in-out;
   }
 
   h1, h2, h3, h4, h5, h6 {

@@ -4,6 +4,24 @@ export default {
     "./index.html",
     "./src/**/*.{js,jsx,ts,tsx}"
   ],
+  // 確保動態類名不被 purge
+  safelist: [
+    // 背景色
+    { pattern: /bg-(rose|teal|violet|amber|sky|orange|emerald|green|pink|purple|blue|red|yellow)-(50|100|200|300|400|500|600)/ },
+    // 文字色
+    { pattern: /text-(rose|teal|violet|amber|sky|orange|emerald|green|pink|purple|blue|red|yellow)-(400|500|600|700|800)/ },
+    // 邊框色
+    { pattern: /border-(rose|teal|violet|amber|sky|orange|emerald|green|pink|purple|blue|red|yellow)-(100|200|300|400|500)/ },
+    // 漸變
+    { pattern: /from-(rose|teal|violet|amber|sky|orange|emerald|green|pink|purple|blue|red|yellow)-(200|300|400)/ },
+    { pattern: /to-(rose|teal|violet|amber|sky|orange|emerald|green|pink|purple|blue|red|yellow)-(100|200|300)/ },
+    // 陰影
+    { pattern: /shadow-(rose|teal|violet|amber|sky|orange|emerald)/ },
+    // Hover
+    { pattern: /hover:bg-(rose|teal|violet|amber|sky|orange|emerald|green|pink|purple|blue|red|yellow)-(500|600)/ },
+    // Ring
+    { pattern: /ring-(rose|teal|violet|amber|sky|orange|emerald|green|pink|purple|blue|red|yellow)-(200|300)/ },
+  ],
   theme: {
     extend: {
       colors: {

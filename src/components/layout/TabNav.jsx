@@ -1,6 +1,9 @@
 import { Calendar, Utensils, Map, ShoppingBag } from 'lucide-react';
+import { useTheme } from '../../contexts/ThemeContext';
 
 export default function TabNav({ activeTab, setActiveTab }) {
+  const theme = useTheme();
+
   const tabs = [
     { id: 'timeline', label: '行程', icon: Calendar },
     { id: 'gourmet', label: '美食', icon: Utensils },
@@ -17,10 +20,12 @@ export default function TabNav({ activeTab, setActiveTab }) {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`relative flex items-center justify-center w-14 h-14 rounded-full transition-all duration-500 ${isActive
-                  ? 'bg-gradient-to-tr from-primary-400 to-primary-300 text-white shadow-lg translate-y-[-8px]'
+              className={`relative flex items-center justify-center w-14 h-14 rounded-full transition-all duration-500 ${
+                isActive
+                  ? `bg-gradient-to-tr ${theme.classes.gradient} text-white shadow-lg translate-y-[-8px]`
                   : 'text-gray-400 hover:bg-gray-50'
-                }`}
+              }`}
+              style={isActive ? { boxShadow: theme.shadow } : {}}
             >
               <tab.icon
                 size={isActive ? 22 : 20}
@@ -29,7 +34,7 @@ export default function TabNav({ activeTab, setActiveTab }) {
               />
 
               {isActive && (
-                <span className="absolute -bottom-6 text-[10px] font-bold text-primary-600 bg-white/80 px-2 py-0.5 rounded-full shadow-sm animate-in fade-in slide-up">
+                <span className={`absolute -bottom-6 text-[10px] font-bold ${theme.classes.textDark} bg-white/80 px-2 py-0.5 rounded-full shadow-sm animate-in fade-in slide-up`}>
                   {tab.label}
                 </span>
               )}

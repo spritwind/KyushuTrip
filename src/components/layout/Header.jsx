@@ -1,5 +1,6 @@
 import * as Icons from 'lucide-react';
 import AnimatedWeatherIcon from '@components/weather/AnimatedWeatherIcon';
+import { useTheme } from '../../contexts/ThemeContext';
 
 // 每日主要景點地標配置 (完整 8 天)
 const DAY_LANDMARKS = {
@@ -14,6 +15,7 @@ const DAY_LANDMARKS = {
 };
 
 export default function Header({ dayData, weather, navigationMode, setNavigationMode }) {
+  const theme = useTheme();
   const landmark = DAY_LANDMARKS[dayData.id] || { icon: 'MapPin', name: dayData.location, subtext: '' };
   const LandmarkIcon = Icons[landmark.icon] || Icons.MapPin;
 
@@ -29,25 +31,30 @@ export default function Header({ dayData, weather, navigationMode, setNavigation
 
   return (
     <div className="relative pt-10 pb-8 px-6 text-gray-800 overflow-visible z-10">
-      {/* Decorative Background Elements */}
-      <div className="absolute top-[-50px] left-[-50px] w-64 h-64 bg-primary-200/40 rounded-full blur-[80px] -z-10 animate-float"></div>
-      <div className="absolute top-[20px] right-[-20px] w-48 h-48 bg-accent-200/40 rounded-full blur-[60px] -z-10 animate-float" style={{ animationDelay: '2s' }}></div>
+      {/* Decorative Background Elements - 使用動態主題色 */}
+      <div
+        className={`absolute top-[-50px] left-[-50px] w-64 h-64 ${theme.classes.bgMedium}/50 rounded-full blur-[80px] -z-10 animate-float transition-colors duration-700`}
+      ></div>
+      <div
+        className={`absolute top-[20px] right-[-20px] w-48 h-48 ${theme.classes.bgLight}/60 rounded-full blur-[60px] -z-10 animate-float transition-colors duration-700`}
+        style={{ animationDelay: '2s' }}
+      ></div>
 
       <div className="flex justify-between items-start">
         {/* Title Section */}
         <div className="animate-in slide-in-from-right">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/60 backdrop-blur-sm rounded-full border border-white/50 mb-3 shadow-sm">
-            <Icons.Sparkles size={12} className="text-primary-500" />
-            <span className="text-[10px] font-bold tracking-wider text-primary-700 uppercase">Kyushu Family Trip</span>
+          <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/60 backdrop-blur-sm rounded-full border border-white/50 mb-3 shadow-sm`}>
+            <Icons.Sparkles size={12} className={theme.classes.text} />
+            <span className={`text-[10px] font-bold tracking-wider ${theme.classes.textDark} uppercase`}>Kyushu Family Trip</span>
           </div>
 
           <h1 className="text-3xl font-display font-extrabold text-gray-800 leading-tight">
-            九州<span className="text-primary-500">極致</span>之旅
+            九州<span className={theme.classes.text}>極致</span>之旅
           </h1>
 
           <div className="flex items-center gap-2 mt-2 text-gray-600">
-            <Icons.CalendarHeart size={16} className="text-primary-400" />
-            <span className="text-sm font-bold bg-white/40 px-2 py-0.5 rounded-md">
+            <Icons.CalendarHeart size={16} className={theme.classes.text} />
+            <span className={`text-sm font-bold ${theme.classes.bgLight} px-2 py-0.5 rounded-md transition-colors duration-500`}>
               {dayData.date}
             </span>
           </div>
@@ -82,8 +89,8 @@ export default function Header({ dayData, weather, navigationMode, setNavigation
 
             {/* 景點地標 */}
             <div className="flex flex-col items-center">
-              <div className="w-7 h-7 rounded-full bg-primary-100 flex items-center justify-center mb-1">
-                <LandmarkIcon size={14} className="text-primary-500" />
+              <div className={`w-7 h-7 rounded-full ${theme.classes.bgLight} flex items-center justify-center mb-1 transition-colors duration-500`}>
+                <LandmarkIcon size={14} className={theme.classes.text} />
               </div>
               <span className="text-[10px] font-bold text-gray-600">{landmark.name}</span>
               <span className="text-[8px] text-gray-400">{landmark.subtext}</span>
@@ -95,7 +102,7 @@ export default function Header({ dayData, weather, navigationMode, setNavigation
       {/* Sub-header Info */}
       <div className="mt-5 flex items-center justify-between">
         <div className="flex items-center gap-2 text-sm font-semibold text-gray-600 bg-white/30 px-3 py-1.5 rounded-2xl backdrop-blur-sm">
-          <Icons.MapPin size={14} className="text-primary-500" />
+          <Icons.MapPin size={14} className={theme.classes.text} />
           <span>{dayData.location || "Kyushu, Japan"}</span>
         </div>
 
@@ -112,9 +119,9 @@ export default function Header({ dayData, weather, navigationMode, setNavigation
         <div className="inline-flex items-center bg-white/60 backdrop-blur-md rounded-full p-1 shadow-sm border border-white/50">
           <button
             onClick={() => setNavigationMode(true)}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all duration-300 ${
               navigationMode
-                ? 'bg-primary-500 text-white shadow-cute'
+                ? `${theme.classes.bg} text-white shadow-md`
                 : 'text-gray-500 hover:text-gray-700'
             }`}
           >
@@ -123,7 +130,7 @@ export default function Header({ dayData, weather, navigationMode, setNavigation
           </button>
           <button
             onClick={() => setNavigationMode(false)}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all duration-300 ${
               !navigationMode
                 ? 'bg-success-500 text-white shadow-sm'
                 : 'text-gray-500 hover:text-gray-700'
