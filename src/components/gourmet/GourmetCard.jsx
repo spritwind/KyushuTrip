@@ -14,17 +14,28 @@ export default function GourmetCard({ place, userPosition, navigationMode }) {
     : null;
 
   const handleNavigate = () => {
-    if (place.locationKey) {
+    // 優先使用 coordinates，其次使用 locationKey
+    let lat, lng;
+
+    if (place.coordinates?.lat && place.coordinates?.lng) {
+      lat = place.coordinates.lat;
+      lng = place.coordinates.lng;
+    } else if (place.locationKey) {
       const location = LOCATIONS[place.locationKey];
       if (location) {
-        const url = getGoogleMapsDirectionsUrl(
-          location.lat,
-          location.lng,
-          navigationMode,
-          place.name // 傳遞餐廳名稱
-        );
-        window.open(url, '_blank');
+        lat = location.lat;
+        lng = location.lng;
       }
+    }
+
+    if (lat && lng) {
+      const url = getGoogleMapsDirectionsUrl(
+        lat,
+        lng,
+        navigationMode,
+        place.name // 傳遞餐廳名稱讓 Google Maps 搜尋完整景點資訊
+      );
+      window.open(url, '_blank');
     }
   };
 

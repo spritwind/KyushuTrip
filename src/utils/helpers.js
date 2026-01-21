@@ -32,25 +32,56 @@ export function getActivityIcon(type) {
 }
 
 /**
- * 生成 Google Maps 導航 URL
+ * 清理景點名稱，移除不必要的符號和標記，保留有助於搜尋的部分
+ * @param {string} name - 原始名稱
+ * @returns {string} 清理後的名稱
+ */
+function cleanPlaceName(name) {
+  if (!name) return '';
+
+  return name
+    // 移除路線標記 emoji
+    .replace(/^🛣️\s*/g, '')
+    // 移除時間標記如 (約15分鐘)、(步行約5分)
+    .replace(/\s*[\(（][^）\)]*(?:分鐘?|分)[^）\)]*[\)）]/g, '')
+    // 移除 Google 評分標記 | Google評分: 4.3⭐
+    .replace(/\s*[\|｜]\s*Google.*$/g, '')
+    // 移除獨立的星星符號
+    .replace(/[⭐★☆]/g, '')
+    // 移除多餘空格
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * 生成 Google Maps 導航/搜尋 URL
+ * 優先使用景點名稱搜尋，讓 Google Maps 顯示完整的景點資訊
+ *
  * @param {number} lat - 緯度
  * @param {number} lng - 經度
  * @param {boolean} navigationMode - true: 導航模式, false: 查看模式
- * @param {string} placeName - 地點名稱（選填，用於查看模式）
+ * @param {string} placeName - 地點名稱（強烈建議提供）
  */
 export function getGoogleMapsDirectionsUrl(lat, lng, navigationMode = true, placeName = null) {
+  const cleanedName = cleanPlaceName(placeName);
+
   if (navigationMode) {
-    // 導航模式：開啟 Google Maps 導航
-    return `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+    // 導航模式
+    if (cleanedName) {
+      // 使用景點名稱作為目的地，Google Maps 會搜尋景點並開啟導航
+      // 這樣到達時會顯示完整的景點資訊（照片、評論、營業時間）
+      const encodedQuery = encodeURIComponent(cleanedName);
+      return `https://www.google.com/maps/dir/?api=1&destination=${encodedQuery}`;
+    } else {
+      // 沒有名稱時，降級使用座標
+      return `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+    }
   } else {
-    // 查看模式：使用地點名稱 + 座標搜尋，確保精確定位到正確的分店
-    if (placeName) {
-      // 組合名稱和座標，Google Maps 會優先匹配最接近該座標的同名店家
-      const searchQuery = `${placeName} ${lat},${lng}`;
-      const encodedQuery = encodeURIComponent(searchQuery);
+    // 查看模式：搜尋景點
+    if (cleanedName) {
+      const encodedQuery = encodeURIComponent(cleanedName);
       return `https://www.google.com/maps/search/?api=1&query=${encodedQuery}`;
     } else {
-      // 如果沒有名稱，降級使用座標
       return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
     }
   }
